@@ -3,1704 +3,1400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAI Hotel Campestre — Boutique Eco Hotel, Café & Restaurante | Quindío</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Selva Negra — Café · Restaurante · Bar · Calarcá, Quindío</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --olive: #3E4B3F;
-    --olive-light: #4d5e4f;
-    --sand: #F2E8D5;
-    --sand-light: #FAF8F3;
-    --charcoal: #1F1F1F;
-    --wood: #7A5C45;
-    --wood-light: #9e7a5c;
-    --gold: #C9A96E;
-    --gold-light: #e2c896;
-    --white: #FFFFFF;
-    --dark-overlay: rgba(20,18,14,0.55);
-    --transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --black: #0e0e0e;
+    --black2: #121212;
+    --black3: #1a1a1a;
+    --graphite: #242424;
+    --orange: #D46A1F;
+    --amber: #E08B2C;
+    --red-orange: #B9481D;
+    --white: #F4F1EA;
+    --gray: #B8B8B8;
+    --gray-dim: #6a6a6a;
   }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--sand-light);
-    color: var(--charcoal);
+    background: var(--black2);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
   }
 
-  /* ---- NAVBAR ---- */
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black2); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+  /* ── NAV ── */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: var(--transition);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    background: linear-gradient(to bottom, rgba(14,14,14,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(8px);
+    transition: background 0.4s;
   }
-  nav.scrolled {
-    background: rgba(31,25,18,0.96);
-    backdrop-filter: blur(12px);
-    padding: 0.85rem 3rem;
-    box-shadow: 0 1px 30px rgba(0,0,0,0.3);
-  }
+  nav.solid { background: rgba(14,14,14,0.97); }
+
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.9rem;
-    font-weight: 600;
-    color: var(--sand);
-    letter-spacing: 0.15em;
+    display: flex; align-items: center; gap: 12px;
     text-decoration: none;
   }
-  .nav-logo span {
-    color: var(--gold);
+  .nav-logo svg { width: 38px; height: 38px; }
+  .nav-logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1;
   }
+  .nav-logo-text span { color: var(--orange); }
+
   .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+    display: flex; gap: 32px; list-style: none;
   }
   .nav-links a {
-    color: rgba(242,232,213,0.85);
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: var(--transition);
-    position: relative;
+    text-decoration: none; color: var(--gray);
+    font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    transition: color 0.3s;
   }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px; left: 0;
-    width: 0; height: 1px;
-    background: var(--gold);
-    transition: width 0.3s ease;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--charcoal) !important;
-    padding: 0.55rem 1.4rem;
-    border-radius: 1px;
-    font-weight: 600 !important;
-    letter-spacing: 0.08em !important;
-    transition: var(--transition) !important;
-  }
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--charcoal) !important; }
-  .nav-cta::after { display: none !important; }
+  .nav-links a:hover { color: var(--amber); }
 
-  /* ---- HERO ---- */
+  .nav-cta {
+    background: var(--orange); color: var(--white) !important;
+    padding: 9px 22px; border-radius: 2px;
+    font-family: 'Oswald', sans-serif !important;
+    letter-spacing: 2px !important; font-size: 0.75rem !important;
+    transition: background 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--amber) !important; color: var(--black) !important; }
+
+  /* hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+  .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); transition: 0.3s; }
+
+  /* ── HERO ── */
   #hero {
-    height: 100vh;
-    min-height: 700px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
   .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      linear-gradient(to bottom, rgba(20,18,14,0.3) 0%, rgba(20,18,14,0.6) 60%, rgba(20,18,14,0.85) 100%),
-      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85') center/cover no-repeat;
-    transform: scale(1.05);
-    animation: heroZoom 12s ease-out forwards;
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=1800&q=80');
+    background-size: cover; background-position: center;
+    transform: scale(1.08);
+    animation: heroZoom 18s ease-in-out infinite alternate;
   }
   @keyframes heroZoom {
-    0% { transform: scale(1.05); }
-    100% { transform: scale(1.0); }
+    from { transform: scale(1.08); }
+    to   { transform: scale(1.0); }
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(14,14,14,0.88) 0%,
+      rgba(14,14,14,0.65) 50%,
+      rgba(180,72,29,0.18) 100%
+    );
+  }
+  .hero-glow {
+    position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(212,106,31,0.22) 0%, transparent 70%);
+    pointer-events: none;
   }
   .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 820px;
-    padding: 0 2rem;
-    animation: fadeUp 1.2s ease forwards;
-    opacity: 0;
-    animation-delay: 0.3s;
+    position: relative; z-index: 2;
+    text-align: center; padding: 0 24px;
+    animation: fadeUp 1.2s ease both;
   }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
   .hero-eyebrow {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.4rem;
-    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem; letter-spacing: 6px; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 16px;
+    animation: fadeUp 1.2s 0.2s ease both;
   }
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 400;
-    line-height: 1.12;
-    color: var(--sand);
-    margin-bottom: 1.4rem;
-    font-style: italic;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 14vw, 12rem);
+    line-height: 0.9; letter-spacing: 4px;
+    color: var(--white);
+    text-shadow: 0 0 80px rgba(212,106,31,0.35);
+    animation: fadeUp 1.2s 0.35s ease both;
   }
-  .hero-subtitle {
-    font-size: 0.92rem;
-    color: rgba(242,232,213,0.75);
-    line-height: 1.8;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
-    font-weight: 300;
-    letter-spacing: 0.02em;
+  .hero-title span { color: var(--orange); }
+  .hero-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+    font-weight: 300; letter-spacing: 1.5px;
+    color: rgba(244,241,234,0.75);
+    max-width: 520px; margin: 20px auto 0;
+    line-height: 1.7;
+    animation: fadeUp 1.2s 0.5s ease both;
   }
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  .hero-divider {
+    width: 50px; height: 2px;
+    background: linear-gradient(to right, var(--orange), var(--amber));
+    margin: 24px auto;
+    animation: fadeUp 1.2s 0.6s ease both;
+  }
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    justify-content: center; margin-top: 10px;
+    animation: fadeUp 1.2s 0.7s ease both;
   }
   .btn-primary {
-    background: var(--gold);
-    color: var(--charcoal);
-    padding: 0.95rem 2.2rem;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    background: var(--orange); color: var(--white);
+    padding: 14px 34px; border: none; cursor: pointer;
+    font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
   }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
   .btn-outline {
-    background: transparent;
-    color: var(--sand);
-    padding: 0.95rem 2.2rem;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid rgba(242,232,213,0.45);
-    cursor: pointer;
-    transition: var(--transition);
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    background: transparent; color: var(--white);
+    padding: 13px 34px; border: 1px solid rgba(244,241,234,0.4);
+    cursor: pointer; font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
   }
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    animation: bounce 2s infinite;
-    color: rgba(242,232,213,0.6);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+  .btn-wa {
+    background: #25D366; color: #fff;
+    padding: 13px 26px; border: none; cursor: pointer;
+    font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px; display: flex; align-items: center; gap: 8px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-wa:hover { background: #1ab659; transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    animation: fadeUp 1.2s 1.2s ease both;
+  }
+  .hero-scroll span {
+    font-family: 'Oswald', sans-serif; font-size: 0.6rem;
+    letter-spacing: 4px; color: var(--gray-dim); text-transform: uppercase;
   }
   .scroll-line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, rgba(201,169,110,0.8), transparent);
-    animation: scrollLine 2s infinite;
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--orange), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
   }
-  @keyframes scrollLine {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
-  @keyframes bounce {
-    0%, 100% { opacity: 0.6; }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
     50% { opacity: 1; }
   }
 
-  /* ---- SECTIONS SHARED ---- */
-  section { padding: 6rem 0; }
-  .container { max-width: 1220px; margin: 0 auto; padding: 0 2rem; }
-  .section-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-    display: block;
+  /* ── FLOATING WA ── */
+  .float-wa {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: waPulse 2.5s ease-in-out infinite;
+  }
+  .float-wa:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 32px rgba(37,211,102,0.65); }
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 0; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  .section-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 12px;
   }
   .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--olive);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1; letter-spacing: 2px; color: var(--white);
   }
-  .section-title.light { color: var(--sand); }
-  .section-subtitle {
-    font-size: 0.9rem;
-    line-height: 1.9;
-    color: #5a5248;
-    max-width: 540px;
-    font-weight: 300;
+  .section-title span { color: var(--orange); }
+  .section-line {
+    width: 48px; height: 2px; margin: 18px 0;
+    background: linear-gradient(to right, var(--orange), transparent);
   }
-  .section-subtitle.light { color: rgba(242,232,213,0.72); }
 
-  /* ---- EXPERIENCIA KAI ---- */
-  #experiencia { background: var(--sand-light); }
-  .exp-intro {
+  /* ── ABOUT ── */
+  #about { background: var(--black3); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px; align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-wrap img {
+    width: 100%; aspect-ratio: 4/5; object-fit: cover;
+    border-radius: 2px;
+    filter: brightness(0.88) saturate(1.1);
+  }
+  .about-img-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--orange); padding: 20px 24px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem; letter-spacing: 2px;
+    line-height: 1.3; color: var(--white);
     text-align: center;
-    max-width: 680px;
-    margin: 0 auto 4.5rem;
   }
-  .exp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+  .about-text { padding: 10px 0; }
+  .about-text p {
+    color: rgba(244,241,234,0.72); font-size: 0.95rem;
+    line-height: 1.85; font-weight: 300; margin-bottom: 20px;
   }
-  .exp-card {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 3/4;
-    cursor: pointer;
+  .about-stats {
+    display: flex; gap: 40px; margin-top: 36px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.07);
   }
-  .exp-card:first-child { aspect-ratio: 3/4; }
-  .exp-card-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem;
+    color: var(--orange); line-height: 1;
   }
-  .exp-card:hover .exp-card-bg { transform: scale(1.08); }
-  .exp-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(20,18,14,0.82) 0%, rgba(20,18,14,0.1) 60%);
-    transition: var(--transition);
-  }
-  .exp-card:hover .exp-card-overlay { background: linear-gradient(to top, rgba(20,18,14,0.92) 0%, rgba(20,18,14,0.25) 60%); }
-  .exp-card-content {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 2rem;
-  }
-  .exp-card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.6rem;
-    display: block;
-  }
-  .exp-card-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    display: block;
-    margin-bottom: 0.4rem;
-  }
-  .exp-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: var(--sand);
-    font-weight: 400;
-    line-height: 1.25;
-    margin-bottom: 0.6rem;
-  }
-  .exp-card-text {
-    font-size: 0.8rem;
-    color: rgba(242,232,213,0.7);
-    line-height: 1.7;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-    opacity: 0;
-  }
-  .exp-card:hover .exp-card-text { max-height: 80px; opacity: 1; }
-
-  /* ---- SPLIT FEATURE ---- */
-  #naturaleza {
-    background: var(--olive);
-    overflow: hidden;
-  }
-  .split-feature {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 600px;
-  }
-  .split-img {
-    position: relative;
-    overflow: hidden;
-  }
-  .split-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-  }
-  .split-img:hover img { transform: scale(1.04); }
-  .split-text {
-    display: flex;
-    align-items: center;
-    padding: 5rem 4rem;
-  }
-  .split-text-inner { max-width: 440px; }
-  .split-text-inner .section-title { margin-bottom: 1.2rem; }
-  .split-text-inner .section-subtitle { margin-bottom: 2rem; }
-  .features-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    margin-bottom: 2rem;
-  }
-  .features-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.83rem;
-    color: rgba(242,232,213,0.8);
-    font-weight: 300;
-  }
-  .features-list li::before {
-    content: '';
-    width: 20px;
-    height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
+  .stat-label {
+    font-family: 'Oswald', sans-serif; font-size: 0.65rem;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--gray-dim);
+    margin-top: 4px;
   }
 
-  /* ---- HABITACIONES ---- */
-  #habitaciones { background: var(--sand-light); }
-  .rooms-intro {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 3.5rem;
-    gap: 2rem;
-    flex-wrap: wrap;
+  /* ── MENU ── */
+  #menu { background: var(--black2); }
+  .menu-header { text-align: center; margin-bottom: 60px; }
+  .menu-cats {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 32px; margin-bottom: 52px;
   }
-  .rooms-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
+  .cat-btn {
+    background: transparent; color: var(--gray);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 9px 20px; cursor: pointer;
+    font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    border-radius: 2px; transition: all 0.25s;
   }
-  .room-card {
-    position: relative;
-    overflow: hidden;
-    background: var(--charcoal);
-    cursor: pointer;
+  .cat-btn:hover, .cat-btn.active {
+    background: var(--orange); color: var(--white);
+    border-color: var(--orange);
   }
-  .room-img {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.7s ease, opacity 0.5s ease;
-    opacity: 0.9;
-  }
-  .room-card:hover .room-img { transform: scale(1.06); opacity: 0.75; }
-  .room-info {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 1.8rem;
-    background: linear-gradient(to top, rgba(20,18,14,0.92) 0%, transparent 100%);
-    transform: translateY(40px);
-    transition: var(--transition);
-  }
-  .room-card:hover .room-info { transform: translateY(0); }
-  .room-type {
-    font-size: 0.62rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.35rem;
-  }
-  .room-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    color: var(--sand);
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    font-style: italic;
-  }
-  .room-desc {
-    font-size: 0.78rem;
-    color: rgba(242,232,213,0.7);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  .room-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--sand);
-  }
-  .room-price span { color: var(--gold); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .room-btn {
-    display: inline-block;
-    margin-top: 0.8rem;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 2px;
-    transition: var(--transition);
-    font-weight: 500;
-  }
-  .room-btn:hover { letter-spacing: 0.25em; }
 
-  /* ---- RESTAURANTE ---- */
-  #restaurante { background: var(--charcoal); padding: 7rem 0; }
-  .rest-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    margin-bottom: 5rem;
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+
+  .menu-section-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+    letter-spacing: 3px; color: var(--amber);
+    margin-bottom: 6px; margin-top: 36px;
   }
-  .rest-img-wrap {
-    position: relative;
-    overflow: hidden;
+  .menu-section-sub {
+    font-family: 'Montserrat', sans-serif; font-size: 0.72rem;
+    color: var(--gray-dim); letter-spacing: 1px;
+    margin-bottom: 18px;
   }
-  .rest-img-wrap img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-  }
-  .rest-badge {
-    position: absolute;
-    top: 1.5rem; right: -1.5rem;
-    background: var(--gold);
-    color: var(--charcoal);
-    padding: 1.2rem 2rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.4;
-    transform: rotate(2deg);
-  }
-  .menu-tabs {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-  }
-  .menu-tab {
-    padding: 0.5rem 1.1rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 500;
-    cursor: pointer;
-    border: 1px solid rgba(242,232,213,0.2);
-    color: rgba(242,232,213,0.6);
-    background: transparent;
-    transition: var(--transition);
-    font-family: 'Poppins', sans-serif;
-  }
-  .menu-tab:hover, .menu-tab.active {
-    background: var(--gold);
-    color: var(--charcoal);
-    border-color: var(--gold);
-  }
+
   .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1px;
-    background: rgba(242,232,213,0.08);
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px; margin-bottom: 8px;
   }
   .menu-item {
-    background: var(--charcoal);
-    padding: 1.6rem;
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    transition: background 0.3s ease;
+    background: var(--black3);
+    padding: 18px 22px;
+    border-left: 2px solid transparent;
+    transition: border-color 0.25s, background 0.25s;
     cursor: default;
   }
-  .menu-item:hover { background: #282420; }
-  .menu-item-img {
-    width: 72px;
-    height: 72px;
-    object-fit: cover;
-    flex-shrink: 0;
+  .menu-item:hover {
+    border-left-color: var(--orange);
+    background: rgba(212,106,31,0.05);
   }
-  .menu-item-info { flex: 1; }
+  .menu-item-header {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  }
   .menu-item-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--sand);
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-    font-style: italic;
-  }
-  .menu-item-desc {
-    font-size: 0.73rem;
-    color: rgba(242,232,213,0.5);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+    font-family: 'Oswald', sans-serif; font-size: 0.88rem;
+    font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--white); line-height: 1.3; flex: 1;
   }
   .menu-item-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem;
-    color: var(--gold);
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem;
+    color: var(--amber); white-space: nowrap; letter-spacing: 1px;
   }
-  .category-panel { display: none; }
-  .category-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; background: rgba(242,232,213,0.08); }
+  .menu-item-desc {
+    font-size: 0.75rem; color: rgba(244,241,234,0.5);
+    margin-top: 5px; line-height: 1.5; font-weight: 300;
+  }
 
-  /* ---- GALLERY ---- */
-  #galeria { background: var(--sand-light); padding: 6rem 0; }
-  .gallery-intro { text-align: center; margin-bottom: 3.5rem; }
+  /* featured image panels */
+  .menu-hero-img {
+    width: 100%; height: 240px; object-fit: cover;
+    border-radius: 2px; margin-bottom: 28px;
+    filter: brightness(0.82) saturate(1.15);
+  }
+
+  /* ── DRINKS FEATURED ── */
+  #drinks { background: var(--black3); overflow: hidden; }
+  .drinks-intro { text-align: center; margin-bottom: 64px; }
+  .drinks-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+  }
+  .drink-card {
+    position: relative; overflow: hidden;
+    aspect-ratio: 3/4; cursor: pointer;
+  }
+  .drink-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: brightness(0.75) saturate(1.2);
+  }
+  .drink-card:hover img { transform: scale(1.07); filter: brightness(0.88) saturate(1.3); }
+  .drink-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,14,14,0.92) 0%, transparent 55%);
+  }
+  .drink-card-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px 22px;
+  }
+  .drink-name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+    letter-spacing: 2px; color: var(--white); line-height: 1;
+  }
+  .drink-desc {
+    font-size: 0.75rem; color: rgba(244,241,234,0.65);
+    margin-top: 5px; font-weight: 300; line-height: 1.5;
+  }
+  .drink-price {
+    font-family: 'Oswald', sans-serif; font-size: 0.82rem;
+    color: var(--amber); letter-spacing: 2px; margin-top: 8px;
+  }
+  .drink-card-big {
+    grid-column: span 1;
+    aspect-ratio: 2/3;
+  }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--black2); }
+  .gallery-intro { text-align: center; margin-bottom: 52px; }
   .masonry {
-    columns: 4;
-    column-gap: 6px;
+    columns: 3; gap: 4px;
   }
   .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 6px;
-    overflow: hidden;
-    position: relative;
+    break-inside: avoid; margin-bottom: 4px;
+    overflow: hidden; position: relative;
     cursor: pointer;
   }
   .masonry-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.6s ease;
-    filter: brightness(0.95);
+    width: 100%; display: block;
+    filter: brightness(0.8) saturate(1.1);
+    transition: transform 0.5s ease, filter 0.5s ease;
   }
-  .masonry-item:hover img { transform: scale(1.05); filter: brightness(1); }
-  .masonry-item-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(62,75,63,0);
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .masonry-item:hover img {
+    transform: scale(1.04); filter: brightness(1) saturate(1.25);
   }
-  .masonry-item:hover .masonry-item-overlay { background: rgba(62,75,63,0.25); }
+  .masonry-item::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(212,106,31,0.18) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .masonry-item:hover::after { opacity: 1; }
 
-  /* ---- TESTIMONIALS ---- */
-  #testimonios { background: var(--olive); padding: 7rem 0; }
-  .test-header { text-align: center; margin-bottom: 4rem; }
-  .test-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: rgba(242,232,213,0.08);
+  /* ── RESERVATION ── */
+  #reservas {
+    background: var(--graphite);
+    position: relative; overflow: hidden;
   }
-  .test-card {
-    background: var(--olive);
-    padding: 2.5rem 2rem;
-    transition: background 0.3s ease;
+  #reservas::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=70');
+    background-size: cover; background-position: center;
+    opacity: 0.07;
   }
-  .test-card:hover { background: var(--olive-light); }
-  .test-stars {
-    color: var(--gold);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.2rem;
+  .reservas-inner {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
   }
-  .test-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--sand);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-weight: 300;
+  .reservas-text .section-title { margin-bottom: 14px; }
+  .reservas-text p {
+    color: rgba(244,241,234,0.65); font-size: 0.92rem;
+    line-height: 1.8; font-weight: 300; max-width: 380px;
   }
-  .test-author {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .test-avatar {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--charcoal);
-    font-family: 'Poppins', sans-serif;
-    flex-shrink: 0;
-  }
-  .test-name {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--sand);
-    margin-bottom: 0.1rem;
-  }
-  .test-location {
-    font-size: 0.7rem;
-    color: rgba(242,232,213,0.5);
-    font-weight: 300;
-  }
-
-  /* ---- RESERVAS ---- */
-  #reservas { background: var(--sand-light); padding: 7rem 0; }
-  .reservas-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-  .reservas-text .section-title { margin-bottom: 1rem; }
-  .reservas-text .section-subtitle { margin-bottom: 2rem; }
-  .reservas-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .res-highlight {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.82rem;
-    color: #5a5248;
-  }
-  .res-dot {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-  .form-card {
-    background: white;
-    padding: 2.5rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-  }
-  .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--olive);
-    margin-bottom: 1.8rem;
-    font-style: italic;
-  }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group { margin-bottom: 16px; }
   .form-group label {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #7a7268;
-    font-weight: 500;
+    display: block; font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gray-dim); margin-bottom: 7px;
   }
   .form-group input, .form-group select {
-    border: none;
-    border-bottom: 1.5px solid #e0d9cf;
-    padding: 0.7rem 0;
-    font-size: 0.88rem;
-    font-family: 'Poppins', sans-serif;
-    color: var(--charcoal);
-    background: transparent;
-    outline: none;
-    transition: border-color 0.3s ease;
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); padding: 13px 16px;
+    font-family: 'Montserrat', sans-serif; font-size: 0.88rem;
+    border-radius: 2px; outline: none;
+    transition: border-color 0.3s;
     -webkit-appearance: none;
   }
-  .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
-  .form-group select { cursor: pointer; }
-  .form-submit {
-    width: 100%;
-    background: var(--olive);
-    color: var(--sand);
-    border: none;
-    padding: 1rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: var(--transition);
-    margin-top: 0.5rem;
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--orange);
   }
-  .form-submit:hover { background: var(--olive-light); }
+  .form-group select option { background: var(--black3); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .btn-submit {
+    width: 100%; padding: 15px;
+    background: var(--orange); color: var(--white); border: none;
+    font-family: 'Oswald', sans-serif; font-size: 0.9rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px; margin-top: 8px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-submit:hover { background: var(--amber); transform: translateY(-2px); }
 
-  /* ---- LOCATION ---- */
-  #ubicacion { background: var(--charcoal); padding: 7rem 0; }
-  .location-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
+  /* ── CONTACT ── */
+  #contacto { background: var(--black3); }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin-top: 52px;
   }
-  .location-map {
-    background: #2a2520;
-    aspect-ratio: 4/3;
+  .contact-card {
+    background: var(--black2); padding: 32px 24px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  .contact-card:hover { background: rgba(212,106,31,0.07); }
+  .contact-icon {
+    font-size: 1.8rem; margin-bottom: 14px; display: block;
+  }
+  .contact-card-title {
+    font-family: 'Oswald', sans-serif; font-size: 0.7rem;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .contact-card p, .contact-card a {
+    font-size: 0.82rem; color: rgba(244,241,234,0.65);
+    line-height: 1.7; text-decoration: none; font-weight: 300;
+  }
+  .contact-card a:hover { color: var(--amber); }
+  .map-wrap {
+    margin-top: 52px; border-radius: 2px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    height: 340px; background: var(--black3);
+    display: flex; align-items: center; justify-content: center;
     position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   .map-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #2a2e2a 0%, #1f2420 50%, #252822 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    border: 1px solid rgba(242,232,213,0.08);
+    width: 100%; height: 100%;
+    background: var(--black3);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px;
   }
-  .map-icon { font-size: 3rem; color: var(--gold); opacity: 0.7; }
-  .map-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    color: rgba(242,232,213,0.6);
-    font-style: italic;
-    text-align: center;
+  .map-placeholder p {
+    font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+    letter-spacing: 3px; color: var(--gray-dim); text-transform: uppercase;
   }
-  .map-sub {
-    font-size: 0.72rem;
-    color: rgba(242,232,213,0.35);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+  .map-placeholder a {
+    background: var(--orange); color: var(--white);
+    padding: 11px 28px; text-decoration: none;
+    font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    border-radius: 2px; transition: background 0.3s;
   }
-  .map-pin-link {
-    margin-top: 0.5rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(201,169,110,0.4);
-    padding-bottom: 2px;
-    transition: var(--transition);
-  }
-  .map-pin-link:hover { border-color: var(--gold); }
-  .location-info .section-title { margin-bottom: 1.5rem; }
-  .info-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-    margin-bottom: 2.5rem;
-  }
-  .info-block-title {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-  }
-  .info-block-text {
-    font-size: 0.85rem;
-    color: rgba(242,232,213,0.65);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-  .info-block-text a { color: var(--gold); text-decoration: none; }
-  .info-block-text a:hover { text-decoration: underline; }
-  .social-links {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(242,232,213,0.6);
-    text-decoration: none;
-    transition: var(--transition);
-    font-weight: 500;
-  }
-  .social-link:hover { color: var(--gold); }
-  .social-icon {
-    width: 34px; height: 34px;
-    border: 1px solid rgba(242,232,213,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    transition: var(--transition);
-  }
-  .social-link:hover .social-icon { border-color: var(--gold); background: rgba(201,169,110,0.1); }
+  .map-placeholder a:hover { background: var(--amber); }
 
-  /* ---- FOOTER ---- */
+  /* ── FOOTER ── */
   footer {
-    background: #121110;
-    padding: 4rem 0 2rem;
-    border-top: 1px solid rgba(242,232,213,0.06);
+    background: #0a0a0a; padding: 56px 0 28px;
+    border-top: 1px solid rgba(255,255,255,0.04);
   }
-  .footer-main {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px; margin-bottom: 48px;
   }
-  .footer-brand .nav-logo { font-size: 1.6rem; display: block; margin-bottom: 1rem; }
+  .footer-brand { }
+  .footer-logo {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+  }
+  .footer-logo-text {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem;
+    letter-spacing: 3px; color: var(--white); line-height: 1;
+  }
+  .footer-logo-text span { color: var(--orange); }
   .footer-brand p {
-    font-size: 0.78rem;
-    color: rgba(242,232,213,0.4);
-    line-height: 1.8;
-    font-weight: 300;
-    max-width: 260px;
+    font-size: 0.82rem; color: rgba(244,241,234,0.45);
+    line-height: 1.8; max-width: 280px; font-weight: 300;
   }
-  .footer-col-title {
-    font-size: 0.62rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.2rem;
+  .footer-socials {
+    display: flex; gap: 12px; margin-top: 22px;
   }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-links a {
-    font-size: 0.8rem;
-    color: rgba(242,232,213,0.45);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 300;
+  .social-btn {
+    width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1rem;
+    border-radius: 2px; transition: all 0.3s;
   }
-  .footer-links a:hover { color: var(--sand); }
+  .social-btn:hover { border-color: var(--orange); background: rgba(212,106,31,0.12); }
+
+  .footer-col h4 {
+    font-family: 'Oswald', sans-serif; font-size: 0.7rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    text-decoration: none; color: rgba(244,241,234,0.5);
+    font-size: 0.82rem; font-weight: 300;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--amber); }
+  .footer-col p {
+    font-size: 0.82rem; color: rgba(244,241,234,0.45);
+    line-height: 1.8; font-weight: 300;
+  }
+
   .footer-bottom {
-    border-top: 1px solid rgba(242,232,213,0.06);
-    padding-top: 1.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
   }
-  .footer-copy {
-    font-size: 0.7rem;
-    color: rgba(242,232,213,0.25);
-    font-weight: 300;
+  .footer-bottom p {
+    font-size: 0.72rem; color: rgba(244,241,234,0.25);
+    letter-spacing: 1px;
   }
-  .footer-made {
-    font-size: 0.7rem;
-    color: rgba(242,232,213,0.25);
-    font-weight: 300;
+  .footer-bottom-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem; letter-spacing: 4px;
+    color: rgba(212,106,31,0.4);
   }
 
-  /* ---- WHATSAPP FLOAT ---- */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 200;
-    width: 54px;
-    height: 54px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    transition: var(--transition);
-    animation: waPulse 3s infinite;
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 100px; right: 28px; z-index: 9999;
+    background: var(--orange); color: var(--white);
+    padding: 14px 24px; border-radius: 2px;
+    font-family: 'Oswald', sans-serif; font-size: 0.82rem; letter-spacing: 1px;
+    transform: translateX(120%); transition: transform 0.4s;
+    box-shadow: 0 4px 20px rgba(212,106,31,0.4);
   }
-  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
-  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
-  @keyframes waPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-    50% { box-shadow: 0 4px 30px rgba(37,211,102,0.65); }
-  }
+  .toast.show { transform: translateX(0); }
 
-  /* ---- REVEAL ANIMATIONS ---- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* ---- RESPONSIVE ---- */
-  @media (max-width: 1024px) {
-    .exp-grid { grid-template-columns: 1fr 1fr; }
-    .rooms-grid { grid-template-columns: repeat(2, 1fr); }
-    .rest-header { grid-template-columns: 1fr; gap: 2rem; }
-    .masonry { columns: 3; }
-    .test-grid { grid-template-columns: 1fr 1fr; }
-    .reservas-wrap { grid-template-columns: 1fr; gap: 3rem; }
-    .location-grid { grid-template-columns: 1fr; }
-    .footer-main { grid-template-columns: 1fr 1fr; }
-    .split-feature { grid-template-columns: 1fr; }
-    .split-text { padding: 3rem 2rem; }
-    .split-text-inner { max-width: 100%; }
-  }
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    nav.scrolled { padding: 0.7rem 1.5rem; }
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
     .nav-links { display: none; }
-    .exp-grid { grid-template-columns: 1fr; }
-    .exp-card { aspect-ratio: 4/3 !important; }
-    .rooms-grid { grid-template-columns: 1fr; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-wrap img { aspect-ratio: 16/9; }
+    .about-img-badge { right: 0; bottom: -16px; }
+    .drinks-grid { grid-template-columns: 1fr 1fr; }
     .masonry { columns: 2; }
-    .test-grid { grid-template-columns: 1fr; background: none; gap: 1px; }
-    .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .footer-brand { grid-column: 1/-1; }
+    .reservas-inner { grid-template-columns: 1fr; gap: 48px; }
     .form-row { grid-template-columns: 1fr; }
-    .rooms-intro { flex-direction: column; }
+    .menu-grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
+    section { padding: 72px 0; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .drinks-grid { grid-template-columns: 1fr; }
     .masonry { columns: 1; }
-    section { padding: 4rem 0; }
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .btn-primary, .btn-outline { width: 100%; text-align: center; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .about-stats { gap: 24px; }
+    .menu-cats { gap: 7px; }
+    .cat-btn { padding: 8px 14px; font-size: 0.7rem; }
   }
 
-  /* Horizontal divider accent */
-  .gold-line {
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    margin: 1.2rem 0;
+  /* mobile nav overlay */
+  .mobile-nav {
+    display: none; position: fixed; inset: 0; z-index: 99;
+    background: rgba(14,14,14,0.98);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 28px;
   }
-  .gold-line.center { margin: 1.2rem auto; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
+    letter-spacing: 4px; color: var(--white); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .mobile-nav a:hover { color: var(--amber); }
+  .mobile-nav-close {
+    position: absolute; top: 24px; right: 28px;
+    background: none; border: none; color: var(--white);
+    font-size: 2rem; cursor: pointer;
+  }
+
+  /* Fade in on scroll */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="#about" onclick="closeMobileNav()">Nosotros</a>
+  <a href="#menu" onclick="closeMobileNav()">Menú</a>
+  <a href="#drinks" onclick="closeMobileNav()">Bebidas</a>
+  <a href="#gallery" onclick="closeMobileNav()">Galería</a>
+  <a href="#reservas" onclick="closeMobileNav()">Reservar</a>
+  <a href="#contacto" onclick="closeMobileNav()">Contacto</a>
+</div>
+
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="nav-logo">KAI<span>·</span></a>
+  <a class="nav-logo" href="#">
+    <!-- SVG Elephant Logo -->
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="38" stroke="#D46A1F" stroke-width="1.5"/>
+      <!-- Elephant silhouette -->
+      <g fill="#F4F1EA">
+        <!-- body -->
+        <ellipse cx="44" cy="45" rx="18" ry="14"/>
+        <!-- head -->
+        <ellipse cx="24" cy="36" rx="11" ry="10"/>
+        <!-- ear -->
+        <ellipse cx="17" cy="34" rx="7" ry="9" fill="#D46A1F" opacity="0.7"/>
+        <!-- trunk -->
+        <path d="M16 43 Q10 50 14 58 Q15 60 17 58 Q15 52 19 46" fill="#F4F1EA"/>
+        <!-- eye -->
+        <circle cx="21" cy="33" r="1.8" fill="#0e0e0e"/>
+        <!-- front legs -->
+        <rect x="32" y="56" width="6" height="12" rx="3"/>
+        <rect x="42" y="56" width="6" height="12" rx="3"/>
+        <!-- back legs -->
+        <rect x="50" y="56" width="6" height="10" rx="3"/>
+        <rect x="58" y="55" width="6" height="10" rx="3"/>
+        <!-- tail -->
+        <path d="M62 44 Q70 42 69 50" stroke="#F4F1EA" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- tusk -->
+        <path d="M16 40 Q9 38 8 44" stroke="#E08B2C" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div>
+      <div class="nav-logo-text">SELVA <span>NEGRA</span></div>
+    </div>
+  </a>
   <ul class="nav-links">
-    <li><a href="#experiencia">Experiencia</a></li>
-    <li><a href="#habitaciones">Habitaciones</a></li>
-    <li><a href="#restaurante">Restaurante</a></li>
-    <li><a href="#galeria">Galería</a></li>
-    <li><a href="#ubicacion">Ubicación</a></li>
-    <li><a href="#reservas" class="nav-cta">Reservar</a></li>
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#drinks">Bebidas</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#reservas" class="nav-cta">Reservar Mesa</a></li>
   </ul>
+  <button class="hamburger" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Selva%20Negra" target="_blank" title="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Reserva enviada. Te contactamos pronto.</div>
+
+<!-- ═══════════════════════════════════════ -->
 <!-- HERO -->
+<!-- ═══════════════════════════════════════ -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Armenia · Calarcá · Quindío, Colombia</span>
-    <h1 class="hero-title">Descansa entre naturaleza,<br>diseño y experiencias<br>inolvidables.</h1>
-    <p class="hero-subtitle">Hotel boutique eco, café de especialidad y gastronomía premium inspirada en el Pacífico colombiano.</p>
-    <div class="hero-buttons">
-      <a href="#reservas" class="btn-primary">Reservar ahora</a>
-      <a href="#habitaciones" class="btn-outline">Ver habitaciones</a>
-      <a href="#restaurante" class="btn-outline">Explorar restaurante</a>
+    <p class="hero-eyebrow">Calarcá · Quindío · Colombia</p>
+    <h1 class="hero-title">SELVA<br><span>NEGRA</span></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Gastronomía, bebidas y experiencias con esencia tropical.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Ver Menú</a>
+      <a href="#reservas" class="btn-outline">Reservar Mesa</a>
+      <a href="https://wa.me/573000000000" target="_blank" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
     </div>
   </div>
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
+  <div class="hero-scroll">
     <span>Descubrir</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- EXPERIENCIA KAI -->
-<section id="experiencia">
+<!-- ═══════════════════════════════════════ -->
+<!-- ABOUT -->
+<!-- ═══════════════════════════════════════ -->
+<section id="about">
   <div class="container">
-    <div class="exp-intro reveal">
-      <span class="section-label">Nuestro mundo</span>
-      <div class="gold-line center"></div>
-      <h2 class="section-title" style="margin-bottom: 1rem;">Una experiencia completa<br><em>en un solo destino.</em></h2>
-      <p class="section-subtitle" style="margin: 0 auto; text-align: center;">KAI es más que un hotel. Es un espacio donde la naturaleza del Eje Cafetero, la arquitectura contemporánea y la cocina del Pacífico convergen en una experiencia sensorial única.</p>
-    </div>
-    <div class="exp-grid">
-      <div class="exp-card">
-        <div class="exp-card-bg" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=85')"></div>
-        <div class="exp-card-overlay"></div>
-        <div class="exp-card-content">
-          <span class="exp-card-label">Alojamiento</span>
-          <h3 class="exp-card-title">Hotel Boutique Eco</h3>
-          <p class="exp-card-text">Habitaciones diseñadas con materiales naturales, inmersas en la vegetación tropical del Quindío. Cada espacio es una experiencia sensorial.</p>
-        </div>
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Ambiente Selva Negra">
+        <div class="about-img-badge">CAFÉ<br>RESTAURANTE<br>BAR</div>
       </div>
-      <div class="exp-card">
-        <div class="exp-card-bg" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85')"></div>
-        <div class="exp-card-overlay"></div>
-        <div class="exp-card-content">
-          <span class="exp-card-label">Gastronomía</span>
-          <h3 class="exp-card-title">Restaurante Premium</h3>
-          <p class="exp-card-text">Cocina del Pacífico colombiano, carnes a la parrilla y creaciones artesanales. Visítanos sin necesidad de hospedarte.</p>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-card-bg" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85')"></div>
-        <div class="exp-card-overlay"></div>
-        <div class="exp-card-content">
-          <span class="exp-card-label">Café</span>
-          <h3 class="exp-card-title">Café de Especialidad</h3>
-          <p class="exp-card-text">Granos seleccionados del corazón del Eje Cafetero. Métodos de preparación artesanal en un ambiente cálido y auténtico.</p>
+      <div class="about-text reveal">
+        <p class="section-tag">Nuestra Historia</p>
+        <h2 class="section-title">UNA EXPERIENCIA<br>QUE NO <span>OLVIDARÁS</span></h2>
+        <div class="section-line"></div>
+        <p>Selva Negra nació con una idea simple: crear un lugar donde la gastronomía, los cócteles y la atmósfera se conviertan en una experiencia única en Calarcá, Quindío.</p>
+        <p>Somos un gastrobar de noche vibrante y sabores intensos, donde cada plato cuenta una historia y cada bebida está pensada para acompañar momentos especiales. La energía tropical del Quindío se siente en cada rincón.</p>
+        <p>Ven a descubrir por qué Selva Negra es más que un restaurante — es el lugar donde la noche cobra vida.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Platos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Bebidas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Memorias</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPLIT FEATURE — NATURALEZA -->
-<section id="naturaleza">
-  <div class="split-feature">
-    <div class="split-img">
-      <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=900&q=85" alt="Naturaleza KAI" loading="lazy">
-    </div>
-    <div class="split-text">
-      <div class="split-text-inner">
-        <span class="section-label">Dónde estamos</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title light">Rodeados de<br><em>montaña y vida.</em></h2>
-        <p class="section-subtitle light" style="margin-bottom: 1.8rem;">KAI está ubicado en el corazón del Quindío, entre Armenia y Calarcá — a minutos del bullicio, pero a mundos de distancia en sensación.</p>
-        <ul class="features-list">
-          <li>Arquitectura eco-contemporánea integrada al paisaje</li>
-          <li>Piscina rodeada de vegetación tropical</li>
-          <li>Espacios abiertos con vistas a la montaña</li>
-          <li>Senderos naturales en el entorno</li>
-          <li>Conexión real con la naturaleza cafetera</li>
-        </ul>
-        <a href="#reservas" class="btn-primary">Vivir la experiencia</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HABITACIONES -->
-<section id="habitaciones">
+<!-- ═══════════════════════════════════════ -->
+<!-- MENU -->
+<!-- ═══════════════════════════════════════ -->
+<section id="menu">
   <div class="container">
-    <div class="rooms-intro">
-      <div>
-        <span class="section-label">Alojamiento</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title">Habitaciones que<br><em>son una experiencia.</em></h2>
-      </div>
-      <p class="section-subtitle" style="max-width: 360px;">Cada espacio diseñado con materiales naturales, luz cálida y detalles que hacen de cada noche un recuerdo.</p>
+    <div class="menu-header reveal">
+      <p class="section-tag">Lo Mejor de Selva Negra</p>
+      <h2 class="section-title">NUESTRO <span>MENÚ</span></h2>
+      <div class="section-line" style="margin: 18px auto;"></div>
+      <p style="color:rgba(244,241,234,0.55); font-size:0.88rem; max-width:480px; margin:0 auto; line-height:1.8; font-weight:300;">
+        Gastronomía pensada para compartir. Sabores intensos, presentaciones únicas.
+      </p>
     </div>
-    <div class="rooms-grid">
-      <div class="room-card reveal">
-        <img class="room-img" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=85" alt="Suite Pacífico" loading="lazy">
-        <div class="room-info">
-          <span class="room-type">Suite Premium</span>
-          <h3 class="room-name">Suite Pacífico</h3>
-          <p class="room-desc">Vista panorámica al jardín, terraza privada, bañera exenta y materiales en madera y piedra natural.</p>
-          <div class="room-price">Desde <strong>$350.000</strong> <span>cop / noche</span></div>
-          <a href="#reservas" class="room-btn">Reservar suite</a>
-        </div>
+
+    <div class="menu-cats">
+      <button class="cat-btn active" onclick="showMenu('entradas', this)">Entradas</button>
+      <button class="cat-btn" onclick="showMenu('platos', this)">Platos Fuertes</button>
+      <button class="cat-btn" onclick="showMenu('hamburguesas', this)">Hamburguesas</button>
+      <button class="cat-btn" onclick="showMenu('picadas', this)">Picadas</button>
+      <button class="cat-btn" onclick="showMenu('postres', this)">Postres</button>
+      <button class="cat-btn" onclick="showMenu('cocteles', this)">Cócteles</button>
+      <button class="cat-btn" onclick="showMenu('cervezas', this)">Cervezas & Shots</button>
+      <button class="cat-btn" onclick="showMenu('sinlicor', this)">Sin Licor</button>
+    </div>
+
+    <!-- ENTRADAS -->
+    <div class="menu-panel active" id="menu-entradas">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=1200&q=80" alt="Entradas">
+      <div class="menu-section-title">ROLLITOS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Arequipe</span><span class="menu-item-price">$20.000</span></div><div class="menu-item-desc">Banano, crema dulce y helado.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mediterráneos</span><span class="menu-item-price">$24.000</span></div><div class="menu-item-desc">Queso mozzarella, tomates frescos y especias.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Hawaianos</span><span class="menu-item-price">$25.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Jamón y Queso Mozzarella</span><span class="menu-item-price">$25.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mixtos</span><span class="menu-item-price">$29.000</span></div><div class="menu-item-desc">Jamón, queso mozzarella, espinaca, champiñones, tomates frescos y especias.</div></div>
       </div>
-      <div class="room-card reveal reveal-delay-1">
-        <img class="room-img" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=700&q=85" alt="Habitación Selva" loading="lazy">
-        <div class="room-info">
-          <span class="room-type">Habitación Doble</span>
-          <h3 class="room-name">Selva Profunda</h3>
-          <p class="room-desc">Inmersión total en la naturaleza. Paredes de vidrio que llevan el bosque al interior de tu habitación.</p>
-          <div class="room-price">Desde <strong>$220.000</strong> <span>cop / noche</span></div>
-          <a href="#reservas" class="room-btn">Reservar</a>
-        </div>
+      <div class="menu-section-title" style="margin-top:28px;">PATACONES</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo Miel Mostaza</span><span class="menu-item-price">$23.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cerdo en Salsa de Perejil</span><span class="menu-item-price">$25.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Res con Chimichurri Argentino</span><span class="menu-item-price">$26.000</span></div></div>
       </div>
-      <div class="room-card reveal reveal-delay-2">
-        <img class="room-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=85" alt="Cabaña KAI" loading="lazy">
-        <div class="room-info">
-          <span class="room-type">Cabaña Privada</span>
-          <h3 class="room-name">Cabaña KAI</h3>
-          <p class="room-desc">Independencia total. Sala, cocina y zona exterior propia. Perfecta para parejas o escapadas familiares.</p>
-          <div class="room-price">Desde <strong>$480.000</strong> <span>cop / noche</span></div>
-          <a href="#reservas" class="room-btn">Reservar cabaña</a>
+      <div class="menu-section-title" style="margin-top:28px;">OTRAS ENTRADAS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Deditos de Hojaldre x5</span><span class="menu-item-price">$12.000</span></div><div class="menu-item-desc">Con miel.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Chips de Plátano</span><span class="menu-item-price">$15.000</span></div><div class="menu-item-desc">Con hogao y salsa de la casa.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Nachos de Maíz</span><span class="menu-item-price">$16.000</span></div><div class="menu-item-desc">Con queso cheddar y guacamole.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Empanadas de Queso con Bocadillo x5</span><span class="menu-item-price">$15.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Empanadas Mixtas x5</span><span class="menu-item-price">$17.000</span></div><div class="menu-item-desc">Con ají y guacamole.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Quesadillas de Jamón y Cheddar</span><span class="menu-item-price">$24.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Quesadillas de Tocineta</span><span class="menu-item-price">$25.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Totopos</span><span class="menu-item-price">$28.000</span></div><div class="menu-item-desc">Nachos de maíz con carne de res molida, queso mozzarella, guacamole y pico de gallo.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">MONTADITOS — $25.000</div>
+      <div class="menu-section-sub">Tostadas de pan francés</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Con Tocineta Caramelizada</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Con Atún</span></div><div class="menu-item-desc">Con toque picante (opcional).</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Con Chorizo</span></div></div>
+      </div>
+    </div>
+
+    <!-- PLATOS FUERTES -->
+    <div class="menu-panel" id="menu-platos">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=80" alt="Platos Fuertes">
+      <div class="menu-section-title">CREPES</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Vegetariano</span><span class="menu-item-price">$25.000</span></div><div class="menu-item-desc">Queso mozzarella, julianas de zanahoria, pimentón, champiñones y maíz dulce.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo con Champiñones</span><span class="menu-item-price">$28.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Solomo de Res</span><span class="menu-item-price">$29.000</span></div><div class="menu-item-desc">Pimentón, tocineta y queso cheddar.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mexicano</span><span class="menu-item-price">$30.000</span></div><div class="menu-item-desc">Carne de res desmechada, queso mozzarella, guacamole y pico de gallo, con toque picante (opcional).</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">GRATINADOS — $28.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Champiñones</span></div><div class="menu-item-desc">Queso mozzarella, crema y especias.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Paisa</span></div><div class="menu-item-desc">Carne desmechada de res, maicitos, chorizo, plátano maduro y queso mozzarella.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo</span></div><div class="menu-item-desc">Maicitos, tocineta, champiñones y queso mozzarella.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">PASTAS — $32.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Carbonara</span></div><div class="menu-item-desc">Tocineta y crema.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cremosa de Queso con Pollo</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Bolognesa</span></div><div class="menu-item-desc">Carne molida y pasta de tomate.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Atún Dinamita</span></div><div class="menu-item-desc">Con un toque picante.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">LASAGNAS — $33.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Carne y Tocineta</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo con Champiñones</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Lasagna Mixta</span><span class="menu-item-price">$35.000</span></div><div class="menu-item-desc">Carne, pollo y champiñones.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">PIZZETAS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Napolitana</span><span class="menu-item-price">$26.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Hawaiana</span><span class="menu-item-price">$27.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cuatro Quesos</span><span class="menu-item-price">$28.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pepperoni</span><span class="menu-item-price">$30.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Maduro y Tocineta</span><span class="menu-item-price">$30.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mexicana</span><span class="menu-item-price">$32.000</span></div><div class="menu-item-desc">Carne de res, maicitos, guacamole y pico de gallo, toque picante (opcional).</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Caprichosa</span><span class="menu-item-price">$32.000</span></div><div class="menu-item-desc">Cubitos de pechuga en salsa bbq, tocineta frita y piña calada.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">CARNES — $35.000</div>
+      <div class="menu-section-sub">Con papas a la francesa y ensalada.</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Filete de Res o de Pollo en Salsa de Champiñones</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Costillas BBQ</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">ENSALADAS — $28.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Con Pollo</span></div><div class="menu-item-desc">Mix de lechugas, tomate, zanahoria, maíz dulce, champiñones y queso.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Con Carne de Res</span></div><div class="menu-item-desc">Lechuga, tomate, pimentón, chorizo y queso mozarella.</div></div>
+      </div>
+    </div>
+
+    <!-- HAMBURGUESAS -->
+    <div class="menu-panel" id="menu-hamburguesas">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80" alt="Hamburguesas">
+      <div class="menu-section-title">HAMBURGUESAS</div>
+      <div class="menu-section-sub">Con papas a la francesa y salsa</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo Gourmet</span><span class="menu-item-price">$27.000</span></div><div class="menu-item-desc">Queso cheddar, verduras y miel mostaza.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Res Gourmet</span><span class="menu-item-price">$27.000</span></div><div class="menu-item-desc">Queso cheddar, tocineta caramelizada y verduras.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Selva Negra</span><span class="menu-item-price">$29.000</span></div><div class="menu-item-desc">Pornil de cerdo desmechado con especias, en salsa bbq, acompañado de ensalada agridulce.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Doble Queso y Tocineta</span><span class="menu-item-price">$29.000</span></div><div class="menu-item-desc">Carne de res, doble queso cheddar, tocineta frita y verduras.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Gaucha</span><span class="menu-item-price">$29.000</span></div><div class="menu-item-desc">Carne de res, chorizo, queso mozzarella y chimichurri argentino.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tropical</span><span class="menu-item-price">$29.000</span></div><div class="menu-item-desc">Pollo, piña caramelizada, queso mozzarella y salsa de la casa.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">SANDWICHES GRATINADOS — $32.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo BBQ</span></div><div class="menu-item-desc">Con chorizo de res.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pollo Miel Mostaza</span></div><div class="menu-item-desc">Con piña y tocineta.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Siena</span></div><div class="menu-item-desc">Solomo de res y tocineta.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Torino</span></div><div class="menu-item-desc">Cordón de cerdo y chimichurri.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ropa Vieja</span></div><div class="menu-item-desc">Carne de res desmechada y chorizo.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">MENÚ INFANTIL</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sandwich Waffle</span><span class="menu-item-price">$15.000</span></div><div class="menu-item-desc">Con helado de vainilla, fresa y salsa de chocolate.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sándwich Gratinado Jamón y Queso</span><span class="menu-item-price">$22.000</span></div><div class="menu-item-desc">Acompañado de milo frío.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Nuggets de Pollo con Papitas</span><span class="menu-item-price">$25.000</span></div><div class="menu-item-desc">Acompañados de salsa rosada y malteada de fresa.</div></div>
+      </div>
+    </div>
+
+    <!-- PICADAS -->
+    <div class="menu-panel" id="menu-picadas">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80" alt="Picadas">
+      <div class="menu-section-title">SUPER PICADA — $85.000</div>
+      <div class="menu-grid">
+        <div class="menu-item" style="grid-column: 1/-1;">
+          <div class="menu-item-desc" style="font-size:0.85rem; color:rgba(244,241,234,0.75); line-height:1.8;">
+            Trozos de carne de res, cerdo y pollo, costilla de cerdo en salsa bbq, chorizo de res, croquetas de yuca, papas a la francesa y criollas. Acompañada de guacamole, chimichurri y salsa de la casa.
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- POSTRES -->
+    <div class="menu-panel" id="menu-postres">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&q=80" alt="Postres">
+      <div class="menu-section-title">CREPES DE POSTRE — $16.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Arequipe y Mozarella</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Nutella y Banano</span></div><div class="menu-item-desc">Con helado.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">WAFFLES — $17.000</div>
+      <div class="menu-section-sub">Con fruta y helado.</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Arequipe</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Nutella</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Melocotón</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Frutos Rojos</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">COPAS DE HELADO</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sencilla</span><span class="menu-item-price">$10.000</span></div><div class="menu-item-desc">Helado de vainilla y fresa con salsa de chocolate.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tropical</span><span class="menu-item-price">$13.000</span></div><div class="menu-item-desc">Con piña dulce, melocotón, fresa y banano, helado de vainilla y fresa.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Frutos Rojos</span><span class="menu-item-price">$15.000</span></div><div class="menu-item-desc">Con pulpa de fruta natural, helado de fresa y brownie.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Oreo</span><span class="menu-item-price">$15.000</span></div><div class="menu-item-desc">Con chocolate derretido, galletas oreo y deditos de chocolate.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">OTROS POSTRES</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Brownie con Helado</span><span class="menu-item-price">$13.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pay de Limón</span><span class="menu-item-price">$9.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fantasía de Milo con Nueces</span><span class="menu-item-price">$9.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mousse de Maracuyá</span><span class="menu-item-price">$9.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Arroz Dulce de Leche</span><span class="menu-item-price">$9.000</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">WAFFLES DE PANDEBONO</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sencillo</span><span class="menu-item-price">$13.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Queso y Tocineta</span><span class="menu-item-price">$16.000</span></div></div>
+      </div>
+    </div>
+
+    <!-- COCTELES -->
+    <div class="menu-panel" id="menu-cocteles">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=1200&q=80" alt="Cócteles">
+      <div class="menu-section-title">COCKTAILS — $24.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mula de Arriero</span></div><div class="menu-item-desc">Aguardiente, jengibre y lulo.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Gin Tonic</span></div><div class="menu-item-desc">Ginebra, agua tónica y limón.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mojito: Maracuyá, Lulo o Mandarina</span></div><div class="menu-item-desc">Ron blanco, hierbabuena y fruta.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Margarita</span></div><div class="menu-item-desc">Tradicional, Blue, Mango Biche, Fresa o Maracuyá. Tequila, limón y fruta.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tequila Sunrise</span></div><div class="menu-item-desc">Con jugo de naranja y granadina.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Piña Colada</span></div><div class="menu-item-desc">Ron dorado y fruta natural.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">BOTELLAS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Vino</span><span class="menu-item-price">$100.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Aguardiente Antioqueño o Amarillo</span></div><div class="menu-item-desc">Botella $110.000 / Media $60.000</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ron</span></div><div class="menu-item-desc">Botella $120.000 / Media $65.000</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tequila Jose Cuervo</span><span class="menu-item-price">$150.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tequila Jimador</span><span class="menu-item-price">$220.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Botella de Whiskey</span></div><div class="menu-item-desc">Buchannan's o Old Parr. Botella $280.000 / Media $160.000</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">OTROS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Copa de Vino Caliente</span><span class="menu-item-price">$15.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Copa de Sangría</span><span class="menu-item-price">$17.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Smirnoff con Fruta</span><span class="menu-item-price">$18.000</span></div></div>
+      </div>
+    </div>
+
+    <!-- CERVEZAS & SHOTS -->
+    <div class="menu-panel" id="menu-cervezas">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1200&q=80" alt="Cervezas">
+      <div class="menu-section-title">CERVEZAS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Nacionales</span><span class="menu-item-price">$7.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Artesanales</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Importadas</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Michelado</span><span class="menu-item-price">$1.500</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Águila Light Selvática</span><span class="menu-item-price">$12.000</span></div><div class="menu-item-desc">Michelada con frutos verdes o amarillos.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">SHOTS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ron</span><span class="menu-item-price">$8.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Aguardiente</span><span class="menu-item-price">$8.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Crema de Whisky</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tequila</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Vodka</span><span class="menu-item-price">$12.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Whisky Black & White</span><span class="menu-item-price">$12.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Whisky Old Parr o Buchannans</span><span class="menu-item-price">$22.000</span></div></div>
+      </div>
+    </div>
+
+    <!-- SIN LICOR -->
+    <div class="menu-panel" id="menu-sinlicor">
+      <img class="menu-hero-img" src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=1200&q=80" alt="Bebidas Sin Licor">
+      <div class="menu-section-title">JUGOS NATURALES</div>
+      <div class="menu-section-sub">Fresa, piña, mango, guanábana, maracuyá, lulo o mora.</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">En Agua</span><span class="menu-item-price">$7.500</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">En Leche</span><span class="menu-item-price">$8.500</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">LIMONADAS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Limonada Natural o de Café</span><span class="menu-item-price">$8.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Maracuyá</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Piña-Hierbabuena</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mango-Jengibre</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cereza-Sandía</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mango Biche</span><span class="menu-item-price">$10.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Coco</span><span class="menu-item-price">$10.000</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">SODAS ITALIANAS — $13.000</div>
+      <div class="menu-section-sub">Con vodka o tequila: $23.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Maracuyá</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cereza-Maracuyá</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sandía</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fresa-Manzana Verde</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Lulo-Mandarina</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">MALTEADAS — $14.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Café / Fresa / Vainilla / Milo / Maracuyá / Ron con Pasas / Arequipe / Frutos Rojos</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Malteada Selva Negra</span><span class="menu-item-price">$16.000</span></div><div class="menu-item-desc">Galletas oreo, brownies, deditos de chocolate y helado de fresa.</div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">GRANIZADOS — $13.000</div>
+      <div class="menu-section-sub">Con amaretto o bayleys: $21.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Maracuyá / Frutos Rojos / Mango Biche / Dulce de Leche / Moka / Café</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">SORBETES — $15.000</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Coco-Guanábana / Coco-Maracuyá / Coco Mango / Mango-Maracuyá / Fresa-Mora-Banano</span></div></div>
+      </div>
+      <div class="menu-section-title" style="margin-top:28px;">OTROS</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Affogato</span><span class="menu-item-price">$10.000</span></div><div class="menu-item-desc">Espresso con helado de vainilla y crema chantilly.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Botella con Agua</span><span class="menu-item-price">$5.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Gaseosa</span><span class="menu-item-price">$5.000</span></div><div class="menu-item-desc">Bretaña, tamarindo, coca cola, quatro, manzana o colombiana.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Té o Soda Hatsu</span><span class="menu-item-price">$9.000</span></div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tamarindo Selvática</span><span class="menu-item-price">$9.500</span></div><div class="menu-item-desc">Michelada con frutos verdes o amarillos.</div></div>
+        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Red Bull</span><span class="menu-item-price">$12.000</span></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- RESTAURANTE -->
-<section id="restaurante">
+<!-- ═══════════════════════════════════════ -->
+<!-- DRINKS FEATURED -->
+<!-- ═══════════════════════════════════════ -->
+<section id="drinks">
   <div class="container">
-    <div class="rest-header">
-      <div class="reveal">
-        <span class="section-label">Gastronomía</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title light">Sabores del<br><em>Pacífico y más allá.</em></h2>
-        <p class="section-subtitle light" style="margin: 1.2rem 0 1.5rem;">Nuestro restaurante y café están abiertos para todos — te hospedes o no. Ven a disfrutar una experiencia gastronómica premium en medio de la naturaleza del Quindío.</p>
-        <p style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:1.5rem;">Abierto al público · Sin reserva previa · Mar–Dom 12:00–22:00</p>
-        <a href="#reservas" class="btn-outline">Hacer reserva</a>
-      </div>
-      <div class="rest-img-wrap reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85" alt="Restaurante KAI" loading="lazy">
-        <div class="rest-badge">Cocina del<br>Pacífico<br>Colombiano</div>
-      </div>
+    <div class="drinks-intro reveal">
+      <p class="section-tag">Signature Drinks</p>
+      <h2 class="section-title">BEBIDAS <span>ICÓNICAS</span></h2>
+      <div class="section-line" style="margin: 18px auto;"></div>
+      <p style="color:rgba(244,241,234,0.55); font-size:0.88rem; max-width:480px; margin:0 auto; line-height:1.8; font-weight:300;">
+        Cada trago es una experiencia. Cócteles pensados para la noche, el sabor y el ambiente de Selva Negra.
+      </p>
     </div>
-
-    <!-- Menu tabs -->
-    <div class="menu-tabs reveal">
-      <button class="menu-tab active" onclick="showMenu('pacifico', this)">Pacífico</button>
-      <button class="menu-tab" onclick="showMenu('parrilla', this)">Parrilla</button>
-      <button class="menu-tab" onclick="showMenu('hamburguesas', this)">Hamburguesas</button>
-      <button class="menu-tab" onclick="showMenu('salchipapas', this)">Salchipapas</button>
-      <button class="menu-tab" onclick="showMenu('cafe', this)">Café</button>
-      <button class="menu-tab" onclick="showMenu('bebidas', this)">Bebidas</button>
-    </div>
-
-    <div id="menu-pacifico" class="category-panel active">
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1565680018434-b3d4a6ae22c8?w=200&q=80" alt="Encocado">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Encocado de camarón</p>
-          <p class="menu-item-desc">Camarones frescos en crema de coco, achiote y hierbas del Pacífico. Acompañado de arroz con coco y patacón.</p>
-          <p class="menu-item-price">$42.000</p>
+  </div>
+  <div style="max-width:1400px; margin:52px auto; padding:0;">
+    <div class="drinks-grid reveal">
+      <div class="drink-card">
+        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=700&q=80" alt="Mojito Maracuyá">
+        <div class="drink-card-overlay"></div>
+        <div class="drink-card-content">
+          <div class="drink-name">MOJITO<br>MARACUYÁ</div>
+          <div class="drink-desc">Ron blanco, hierbabuena y fruta tropical.</div>
+          <div class="drink-price">$24.000</div>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&q=80" alt="Pescado">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Pescado del día</p>
-          <p class="menu-item-desc">Filete fresco preparado al estilo tradicional del Pacífico, con hogao, ensalada y arroz con coco artesanal.</p>
-          <p class="menu-item-price">$38.000</p>
+      <div class="drink-card">
+        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&q=80" alt="Mula de Arriero">
+        <div class="drink-card-overlay"></div>
+        <div class="drink-card-content">
+          <div class="drink-name">MULA DE<br>ARRIERO</div>
+          <div class="drink-desc">Aguardiente, jengibre y lulo. El coctel del Quindío.</div>
+          <div class="drink-price">$24.000</div>
         </div>
       </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&q=80" alt="Arroz coco">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Arroz con coco & mariscos</p>
-          <p class="menu-item-desc">Combinación de mariscos frescos sobre arroz cremoso de coco. Un clásico del litoral elevado al siguiente nivel.</p>
-          <p class="menu-item-price">$46.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&q=80" alt="Ceviche">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Ceviche tropical KAI</p>
-          <p class="menu-item-desc">Ceviché de corvina con leche de tigre, aguacate criollo y chips de plátano verde. Fresco y vibrante.</p>
-          <p class="menu-item-price">$32.000</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="menu-parrilla" class="category-panel">
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?w=200&q=80" alt="Churrasco">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Churrasco a la parrilla</p>
-          <p class="menu-item-desc">Corte premium madurado, brasa de carbón, chimichurri de hierbas frescas. Acompañado de papas rústicas y ensalada.</p>
-          <p class="menu-item-price">$58.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&q=80" alt="Costillas">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Costillas BBQ KAI</p>
-          <p class="menu-item-desc">Rack de costillas en marinada propia, 6 horas de cocción lenta + glaseado en parrilla. Acompañamiento a elección.</p>
-          <p class="menu-item-price">$62.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80" alt="Lomo">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Lomo de cerdo tropical</p>
-          <p class="menu-item-desc">Lomo a la plancha con salsa de maracuyá y panela, yuca frita y ensalada fresca de la huerta.</p>
-          <p class="menu-item-price">$45.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=200&q=80" alt="Pollo parrilla">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Pollo a la brasa KAI</p>
-          <p class="menu-item-desc">Pollo entero marinado 24h en especias criollas, asado lento en parrilla de carbón. Un clásico reinventado.</p>
-          <p class="menu-item-price">$38.000</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="menu-hamburguesas" class="category-panel">
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80" alt="Hamburguesa KAI">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Hamburguesa KAI</p>
-          <p class="menu-item-desc">Doble patty Angus 150g, cheddar madurado, cebolla caramelizada, trufa y salsa secreta KAI. Pan brioche artesanal.</p>
-          <p class="menu-item-price">$36.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=200&q=80" alt="Burger Pacífico">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Burger del Pacífico</p>
-          <p class="menu-item-desc">Patty de res + camarón a la plancha, guacamole, chipotle, pico de gallo y queso costeño. Fusión total.</p>
-          <p class="menu-item-price">$42.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80" alt="Burger Tropical">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Tropical Smash</p>
-          <p class="menu-item-desc">Smash burger 120g x2, mango biche, jalapeño encurtido, queso americano y mayo de cilantro. Sabor audaz.</p>
-          <p class="menu-item-price">$34.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=200&q=80" alt="Chicken Burger">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Crispy Chicken KAI</p>
-          <p class="menu-item-desc">Pechuga crocante bañada en salsa de maracuyá picante, coleslaw de la casa, pepinillos y brioche tostado.</p>
-          <p class="menu-item-price">$30.000</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="menu-salchipapas" class="category-panel">
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=200&q=80" alt="Salchipapa especial">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Salchipapa especial KAI</p>
-          <p class="menu-item-desc">Papa criolla + papas rústicas, chorizo artesanal, queso fundido, chimichurri y ají de la casa. La versión premium.</p>
-          <p class="menu-item-price">$28.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1585325701954-8d13fc7c9614?w=200&q=80" alt="Salchipapa del Pacífico">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Salchipapa del Pacífico</p>
-          <p class="menu-item-desc">Papas mixtas con camarones salteados, salsa de coco y limón. Una fusión tropical que no olvidarás.</p>
-          <p class="menu-item-price">$34.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80" alt="Salchipapa clásica">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Clásica artesanal</p>
-          <p class="menu-item-desc">Papas fritas en aceite de girasol, salchicha parrillera, tres salsas artesanales y queso costeño rallado.</p>
-          <p class="menu-item-price">$22.000</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="menu-cafe" class="category-panel">
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&q=80" alt="Cold brew">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Cold Brew Tropical</p>
-          <p class="menu-item-desc">Extracción en frío 18h de café de origen Quindío, servido con hielo y un toque de leche de coco. Refrescante y profundo.</p>
-          <p class="menu-item-price">$12.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&q=80" alt="Café filtrado">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Café filtrado del Quindío</p>
-          <p class="menu-item-desc">Método Chemex o V60, con granos de fincas seleccionadas del Eje Cafetero. Notas florales y cítricas. Para los entendidos.</p>
-          <p class="menu-item-price">$9.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&q=80" alt="Frappé">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Frappé artesanal KAI</p>
-          <p class="menu-item-desc">Base de espresso doble, crema de coco, caramelo de panela y hielo. Terminado con espuma de leche aireada.</p>
-          <p class="menu-item-price">$14.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=200&q=80" alt="Espresso">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Espresso de origen</p>
-          <p class="menu-item-desc">Shot doble con granos de microlote. Cuerpo pleno y acidez balanceada. El alma del café colombiano.</p>
-          <p class="menu-item-price">$7.000</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="menu-bebidas" class="category-panel">
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200&q=80" alt="Cóctel tropical">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Cóctel tropical KAI</p>
-          <p class="menu-item-desc">Aguardiente Quindío, maracuyá, jengibre y miel de caña. El brindis perfecto para una tarde en la terraza.</p>
-          <p class="menu-item-price">$18.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=200&q=80" alt="Jugo">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Jugos naturales</p>
-          <p class="menu-item-desc">Selección de frutas tropicales de temporada: lulo, guanábana, maracuyá, guayaba o mora. En agua o leche.</p>
-          <p class="menu-item-price">$8.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=80" alt="Limonada">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Limonada de coco</p>
-          <p class="menu-item-desc">Limón tahití, leche de coco, menta fresca y panela. Fresca, tropical y completamente adictiva.</p>
-          <p class="menu-item-price">$10.000</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img class="menu-item-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=200&q=80" alt="Michelada">
-        <div class="menu-item-info">
-          <p class="menu-item-name">Michelada artesanal</p>
-          <p class="menu-item-desc">Cerveza artesanal del Quindío, limón, Worcestershire, salsa de tomate y especias. La favorita del lugar.</p>
-          <p class="menu-item-price">$16.000</p>
+      <div class="drink-card">
+        <img src="https://images.unsplash.com/photo-1566644426715-1bad3e0aa2c7?w=700&q=80" alt="Margarita">
+        <div class="drink-card-overlay"></div>
+        <div class="drink-card-content">
+          <div class="drink-name">MARGARITA<br>MANGO BICHE</div>
+          <div class="drink-desc">Tequila, limón y mango biche. Fresca y perfecta.</div>
+          <div class="drink-price">$24.000</div>
         </div>
       </div>
     </div>
   </div>
+  <div class="container" style="text-align:center; margin-top:16px;">
+    <a href="#menu" class="btn-outline" onclick="showMenuFromLink('cocteles')">Ver Carta de Bebidas</a>
+  </div>
 </section>
 
+<!-- ═══════════════════════════════════════ -->
 <!-- GALLERY -->
-<section id="galeria">
+<!-- ═══════════════════════════════════════ -->
+<section id="gallery">
   <div class="container">
     <div class="gallery-intro reveal">
-      <span class="section-label">Galería</span>
-      <div class="gold-line center"></div>
-      <h2 class="section-title" style="margin-bottom: 0.5rem;">Momentos que<br><em>hablan por sí solos.</em></h2>
+      <p class="section-tag">Atmósfera & Sabor</p>
+      <h2 class="section-title">GALERÍA <span>SELVA NEGRA</span></h2>
+      <div class="section-line" style="margin: 18px auto;"></div>
     </div>
-    <div class="masonry">
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=85" alt="Habitación" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Restaurante" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=85" alt="Piscina" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=85" alt="Café" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=85" alt="Naturaleza" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=85" alt="Hamburguesa" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=85" alt="Habitación" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=85" alt="Cócteles" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85" alt="Plato" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=85" alt="Parrilla" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=600&q=85" alt="Jardín" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=85" alt="Barismo" loading="lazy">
-        <div class="masonry-item-overlay"></div>
-      </div>
+    <div class="masonry reveal">
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1579614036432-0c80b6d8aea7?w=600&q=80" alt="Coctel"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Carne"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Ambiente"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1574966739987-65452444b0fc?w=600&q=80" alt="Coctel 2"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Hamburguesa"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Bar"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80" alt="Postre"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?w=600&q=80" alt="Bebida tropical"></div>
+      <div class="masonry-item"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Plato fuerte"></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonios">
-  <div class="container">
-    <div class="test-header reveal">
-      <span class="section-label">Lo que dicen</span>
-      <div class="gold-line center"></div>
-      <h2 class="section-title light">Experiencias<br><em>que se repiten.</em></h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card reveal">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-quote">"Llegamos solo al restaurante un sábado y nos quedamos todo el fin de semana. El encocado de camarón fue lo mejor que hemos comido en mucho tiempo, y las habitaciones... son otro mundo."</p>
-        <div class="test-author">
-          <div class="test-avatar">LM</div>
-          <div>
-            <p class="test-name">Laura & Miguel</p>
-            <p class="test-location">Bogotá · Familia</p>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal reveal-delay-1">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-quote">"El café filtrado de origen es el mejor que he probado fuera de una competencia barista. El ambiente, la atención y la vista desde la terraza lo hacen aún más especial. Vuelvo la próxima semana."</p>
-        <div class="test-author">
-          <div class="test-avatar">SR</div>
-          <div>
-            <p class="test-name">Santiago Restrepo</p>
-            <p class="test-location">Medellín · Viajero solo</p>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal reveal-delay-2">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-quote">"Celebramos nuestro aniversario en KAI y fue perfecto. Romanticismo, naturaleza, gastronomía increíble y un nivel de detalle que pocas veces he visto en Colombia. Lugar que sí merece la pena."</p>
-        <div class="test-author">
-          <div class="test-avatar">AP</div>
-          <div>
-            <p class="test-name">Andrea & Pedro</p>
-            <p class="test-location">Cali · Pareja</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ═══════════════════════════════════════ -->
 <!-- RESERVAS -->
+<!-- ═══════════════════════════════════════ -->
 <section id="reservas">
   <div class="container">
-    <div class="reservas-wrap">
+    <div class="reservas-inner">
       <div class="reservas-text reveal">
-        <span class="section-label">Reservaciones</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title" style="margin-bottom: 1rem;">Tu próxima<br><em>escapada perfecta.</em></h2>
-        <p class="section-subtitle" style="margin-bottom: 2rem;">Haz tu reserva directa y disfruta de tarifas preferenciales, atención personalizada y la promesa de una experiencia que valdrá cada momento.</p>
-        <div class="reservas-highlights">
-          <div class="res-highlight"><div class="res-dot"></div>Check-in 3:00 PM · Check-out 12:00 PM</div>
-          <div class="res-highlight"><div class="res-dot"></div>Desayuno incluido en todas las habitaciones</div>
-          <div class="res-highlight"><div class="res-dot"></div>Acceso libre a piscina y zonas comunes</div>
-          <div class="res-highlight"><div class="res-dot"></div>Cancelación gratuita hasta 48 horas antes</div>
-          <div class="res-highlight"><div class="res-dot"></div>Restaurante y café disponibles para todos</div>
+        <p class="section-tag">¿Nos visitas?</p>
+        <h2 class="section-title">RESERVA TU<br>MESA ESTA <span>NOCHE</span></h2>
+        <div class="section-line"></div>
+        <p>Asegura tu lugar en la mejor experiencia gastronómica de Calarcá. Cupos limitados — reserva con anticipación.</p>
+        <div style="margin-top:32px; display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <span style="color:var(--orange); font-size:1.2rem;">📍</span>
+            <span style="font-size:0.85rem; color:rgba(244,241,234,0.6); font-weight:300;">Calarcá, Quindío, Colombia</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <span style="color:var(--orange); font-size:1.2rem;">🕐</span>
+            <span style="font-size:0.85rem; color:rgba(244,241,234,0.6); font-weight:300;">Lun–Jue: 12pm–11pm &nbsp;|&nbsp; Vie–Dom: 12pm–1am</span>
+          </div>
         </div>
       </div>
-      <div class="form-card reveal reveal-delay-2">
-        <p class="form-title">Consultar disponibilidad</p>
-        <div class="form-row">
+      <div class="reveal">
+        <form id="reservaForm" onsubmit="submitReserva(event)">
           <div class="form-group">
-            <label>Nombre completo</label>
-            <input type="text" placeholder="Tu nombre">
+            <label>Nombre Completo</label>
+            <input type="text" placeholder="Tu nombre" required>
           </div>
-          <div class="form-group">
-            <label>WhatsApp / Teléfono</label>
-            <input type="tel" placeholder="+57 300 000 0000">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" placeholder="+57 300 000 0000" required>
+            </div>
+            <div class="form-group">
+              <label>Personas</label>
+              <select required>
+                <option value="">Cuántos</option>
+                <option>1 persona</option>
+                <option>2 personas</option>
+                <option>3 personas</option>
+                <option>4 personas</option>
+                <option>5 personas</option>
+                <option>6+ personas</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Fecha de llegada</label>
-            <input type="date">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" required>
+            </div>
+            <div class="form-group">
+              <label>Hora</label>
+              <select required>
+                <option value="">Horario</option>
+                <option>12:00 PM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>6:00 PM</option>
+                <option>7:00 PM</option>
+                <option>8:00 PM</option>
+                <option>9:00 PM</option>
+                <option>10:00 PM</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Fecha de salida</label>
-            <input type="date">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Tipo de habitación</label>
-            <select>
-              <option>Suite Pacífico</option>
-              <option>Selva Profunda</option>
-              <option>Cabaña KAI</option>
-              <option>Reserva en Restaurante</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Número de huéspedes</label>
-            <select>
-              <option>1 persona</option>
-              <option>2 personas</option>
-              <option>3 personas</option>
-              <option>4+ personas</option>
-            </select>
-          </div>
-        </div>
-        <button class="form-submit" onclick="handleReservation()">Consultar disponibilidad →</button>
+          <button type="submit" class="btn-submit">Reservar Mesa →</button>
+        </form>
+        <p style="font-size:0.72rem; color:var(--gray-dim); text-align:center; margin-top:12px; letter-spacing:0.5px;">
+          También puedes reservar por WhatsApp
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- UBICACION -->
-<section id="ubicacion">
+<!-- ═══════════════════════════════════════ -->
+<!-- CONTACTO -->
+<!-- ═══════════════════════════════════════ -->
+<section id="contacto">
   <div class="container">
-    <div class="location-grid">
-      <div class="location-map reveal">
-        <div class="map-placeholder">
-          <div class="map-icon">📍</div>
-          <p class="map-label">KAI Hotel Campestre</p>
-          <p class="map-sub">Armenia · Calarcá, Quindío</p>
-          <a href="https://maps.google.com" target="_blank" class="map-pin-link">Ver en Google Maps →</a>
-        </div>
+    <div class="reveal" style="text-align:center;">
+      <p class="section-tag">Encuéntranos</p>
+      <h2 class="section-title">CONTACTO <span>&</span> UBICACIÓN</h2>
+      <div class="section-line" style="margin: 18px auto;"></div>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <div class="contact-card-title">Dirección</div>
+        <p>Calarcá, Quindío<br>Colombia</p>
       </div>
-      <div class="location-info reveal reveal-delay-2">
-        <span class="section-label">Encuéntranos</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title light" style="margin-bottom: 2rem;">Cerca de todo,<br><em>lejos del ruido.</em></h2>
-        <div class="info-blocks">
-          <div>
-            <p class="info-block-title">Dirección</p>
-            <p class="info-block-text">Km 3 vía Armenia–Calarcá, Quindío, Colombia<br>A 10 minutos del centro de Armenia</p>
-          </div>
-          <div>
-            <p class="info-block-title">Horarios restaurante & café</p>
-            <p class="info-block-text">Martes a Viernes: 12:00 PM – 10:00 PM<br>Sábados y Domingos: 10:00 AM – 11:00 PM<br>Lunes: Cerrado</p>
-          </div>
-          <div>
-            <p class="info-block-title">Contacto</p>
-            <p class="info-block-text">
-              <a href="https://wa.me/573000000000">WhatsApp: +57 300 000 0000</a><br>
-              <a href="mailto:reservas@kaihotel.co">reservas@kaihotel.co</a>
-            </p>
-          </div>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-link">
-            <span class="social-icon">📸</span>
-            @kaihotel.co
-          </a>
-          <a href="https://wa.me/573000000000" class="social-link">
-            <span class="social-icon">💬</span>
-            WhatsApp
-          </a>
-        </div>
+      <div class="contact-card">
+        <span class="contact-icon">🕐</span>
+        <div class="contact-card-title">Horario</div>
+        <p>Lun–Jue: 12pm–11pm<br>Vie–Dom: 12pm–1am</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">💬</span>
+        <div class="contact-card-title">WhatsApp</div>
+        <a href="https://wa.me/573000000000" target="_blank">+57 300 000 0000</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📸</span>
+        <div class="contact-card-title">Instagram</div>
+        <a href="https://instagram.com/selvanegra.calarco" target="_blank">@selvanegra.calarco</a>
+      </div>
+    </div>
+    <div class="map-wrap reveal">
+      <div class="map-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D46A1F" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <p>Calarcá, Quindío — Colombia</p>
+        <a href="https://maps.google.com/?q=Calarcá,Quindío,Colombia" target="_blank">Ver en Google Maps</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════ -->
 <!-- FOOTER -->
+<!-- ═══════════════════════════════════════ -->
 <footer>
   <div class="container">
-    <div class="footer-main">
+    <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">KAI<span>·</span></a>
-        <p>Hotel boutique eco, café de especialidad y restaurante premium inspirado en la gastronomía del Pacífico colombiano. Ubicado entre Armenia y Calarcá, Quindío.</p>
+        <div class="footer-logo">
+          <svg viewBox="0 0 80 80" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="38" stroke="#D46A1F" stroke-width="1.2"/>
+            <g fill="#F4F1EA">
+              <ellipse cx="44" cy="45" rx="18" ry="14"/>
+              <ellipse cx="24" cy="36" rx="11" ry="10"/>
+              <ellipse cx="17" cy="34" rx="7" ry="9" fill="#D46A1F" opacity="0.6"/>
+              <path d="M16 43 Q10 50 14 58 Q15 60 17 58 Q15 52 19 46" fill="#F4F1EA"/>
+              <circle cx="21" cy="33" r="1.8" fill="#0e0e0e"/>
+              <rect x="32" y="56" width="6" height="12" rx="3"/>
+              <rect x="42" y="56" width="6" height="12" rx="3"/>
+              <rect x="50" y="56" width="6" height="10" rx="3"/>
+              <rect x="58" y="55" width="6" height="10" rx="3"/>
+              <path d="M62 44 Q70 42 69 50" stroke="#F4F1EA" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M16 40 Q9 38 8 44" stroke="#E08B2C" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+          </svg>
+          <div class="footer-logo-text">SELVA <span>NEGRA</span></div>
+        </div>
+        <p>Café · Restaurante · Bar<br>Una experiencia gastronómica única en el corazón del Quindío.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="https://instagram.com/selvanegra.calarco" target="_blank" title="Instagram">📸</a>
+          <a class="social-btn" href="https://wa.me/573000000000" target="_blank" title="WhatsApp">💬</a>
+          <a class="social-btn" href="https://facebook.com/selvanegra" target="_blank" title="Facebook">👥</a>
+        </div>
       </div>
-      <div>
-        <p class="footer-col-title">Hotel</p>
-        <ul class="footer-links">
-          <li><a href="#habitaciones">Habitaciones</a></li>
-          <li><a href="#reservas">Reservar</a></li>
-          <li><a href="#galeria">Galería</a></li>
-          <li><a href="#testimonios">Reseñas</a></li>
+      <div class="footer-col">
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#drinks">Bebidas</a></li>
+          <li><a href="#gallery">Galería</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
-      <div>
-        <p class="footer-col-title">Restaurante</p>
-        <ul class="footer-links">
-          <li><a href="#restaurante">Menú</a></li>
-          <li><a href="#restaurante">Cocina del Pacífico</a></li>
-          <li><a href="#restaurante">Parrilla</a></li>
-          <li><a href="#restaurante">Café</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Contacto</p>
-        <ul class="footer-links">
-          <li><a href="https://wa.me/573000000000">WhatsApp</a></li>
-          <li><a href="mailto:reservas@kaihotel.co">Email</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#ubicacion">Cómo llegar</a></li>
-        </ul>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Calarcá, Quindío<br>Colombia<br><br>+57 300 000 0000<br><br>Lun–Jue: 12pm–11pm<br>Vie–Dom: 12pm–1am</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 KAI Hotel Campestre · Armenia, Quindío · Todos los derechos reservados.</p>
-      <p class="footer-made">Experiencias que se recuerdan · <span style="color:var(--gold);">♥</span></p>
+      <p>© 2025 Selva Negra · Calarcá, Quindío · Todos los derechos reservados.</p>
+      <div class="footer-bottom-brand">SELVA NEGRA</div>
     </div>
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/573000000000" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-  </svg>
-</a>
-
 <script>
-  // Navbar scroll effect
+  // NAV SOLID ON SCROLL
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    navbar.classList.toggle('solid', window.scrollY > 60);
   });
 
-  // Reveal on scroll
+  // MOBILE NAV
+  function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+  // MENU TABS
+  function showMenu(id, btn) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('menu-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function showMenuFromLink(id) {
+    setTimeout(() => {
+      const btn = Array.from(document.querySelectorAll('.cat-btn'))
+        .find(b => b.getAttribute('onclick').includes("'" + id + "'"));
+      if (btn) showMenu(id, btn);
+    }, 400);
+  }
+
+  // FORM SUBMIT
+  function submitReserva(e) {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+    e.target.reset();
+  }
+
+  // SCROLL REVEAL
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('revealed');
-        observer.unobserve(e.target);
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
   }, { threshold: 0.12 });
-  reveals.forEach(r => observer.observe(r));
+  reveals.forEach(el => observer.observe(el));
 
-  // Menu tabs
-  function showMenu(category, btn) {
-    document.querySelectorAll('.category-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('menu-' + category).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  // Reservation form
-  function handleReservation() {
-    const inputs = document.querySelectorAll('#reservas input, #reservas select');
-    let filled = true;
-    inputs.forEach(i => { if (!i.value) filled = false; });
-    
-    const btn = document.querySelector('.form-submit');
-    if (filled) {
-      btn.textContent = '✓ Solicitud enviada — Te contactaremos pronto';
-      btn.style.background = '#3E4B3F';
-      setTimeout(() => {
-        btn.textContent = 'Consultar disponibilidad →';
-        btn.style.background = '';
-      }, 4000);
-    } else {
-      btn.textContent = 'Completa todos los campos';
-      btn.style.background = '#7A5C45';
-      setTimeout(() => {
-        btn.textContent = 'Consultar disponibilidad →';
-        btn.style.background = '';
-      }, 2500);
-    }
-  }
-
-  // Smooth scroll for anchor links
+  // SMOOTH ANCHOR LINKS
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
