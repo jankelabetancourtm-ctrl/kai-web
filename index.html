@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAI Hotel Campestre — Boutique Eco Hotel, Café & Restaurante | Quindío</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --olive: #3E4B3F;
+    --olive-light: #4d5e4f;
+    --sand: #F2E8D5;
+    --sand-light: #FAF8F3;
+    --charcoal: #1F1F1F;
+    --wood: #7A5C45;
+    --wood-light: #9e7a5c;
+    --gold: #C9A96E;
+    --gold-light: #e2c896;
+    --white: #FFFFFF;
+    --dark-overlay: rgba(20,18,14,0.55);
+    --transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--sand-light);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ---- NAVBAR ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+  }
+  nav.scrolled {
+    background: rgba(31,25,18,0.96);
+    backdrop-filter: blur(12px);
+    padding: 0.85rem 3rem;
+    box-shadow: 0 1px 30px rgba(0,0,0,0.3);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--sand);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+  }
+  .nav-logo span {
+    color: var(--gold);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(242,232,213,0.85);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--charcoal) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 1px;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    transition: var(--transition) !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--charcoal) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* ---- HERO ---- */
+  #hero {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to bottom, rgba(20,18,14,0.3) 0%, rgba(20,18,14,0.6) 60%, rgba(20,18,14,0.85) 100%),
+      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85') center/cover no-repeat;
+    transform: scale(1.05);
+    animation: heroZoom 12s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.0); }
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 820px;
+    padding: 0 2rem;
+    animation: fadeUp 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    font-weight: 500;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--sand);
+    margin-bottom: 1.4rem;
+    font-style: italic;
+  }
+  .hero-subtitle {
+    font-size: 0.92rem;
+    color: rgba(242,232,213,0.75);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 0.95rem 2.2rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--sand);
+    padding: 0.95rem 2.2rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(242,232,213,0.45);
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: bounce 2s infinite;
+    color: rgba(242,232,213,0.6);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(201,169,110,0.8), transparent);
+    animation: scrollLine 2s infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+  @keyframes bounce {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* ---- SECTIONS SHARED ---- */
+  section { padding: 6rem 0; }
+  .container { max-width: 1220px; margin: 0 auto; padding: 0 2rem; }
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--olive);
+  }
+  .section-title.light { color: var(--sand); }
+  .section-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: #5a5248;
+    max-width: 540px;
+    font-weight: 300;
+  }
+  .section-subtitle.light { color: rgba(242,232,213,0.72); }
+
+  /* ---- EXPERIENCIA KAI ---- */
+  #experiencia { background: var(--sand-light); }
+  .exp-intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 4.5rem;
+  }
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .exp-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+  .exp-card:first-child { aspect-ratio: 3/4; }
+  .exp-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .exp-card:hover .exp-card-bg { transform: scale(1.08); }
+  .exp-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,18,14,0.82) 0%, rgba(20,18,14,0.1) 60%);
+    transition: var(--transition);
+  }
+  .exp-card:hover .exp-card-overlay { background: linear-gradient(to top, rgba(20,18,14,0.92) 0%, rgba(20,18,14,0.25) 60%); }
+  .exp-card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem;
+  }
+  .exp-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .exp-card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .exp-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--sand);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+  .exp-card-text {
+    font-size: 0.8rem;
+    color: rgba(242,232,213,0.7);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  .exp-card:hover .exp-card-text { max-height: 80px; opacity: 1; }
+
+  /* ---- SPLIT FEATURE ---- */
+  #naturaleza {
+    background: var(--olive);
+    overflow: hidden;
+  }
+  .split-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .split-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .split-img:hover img { transform: scale(1.04); }
+  .split-text {
+    display: flex;
+    align-items: center;
+    padding: 5rem 4rem;
+  }
+  .split-text-inner { max-width: 440px; }
+  .split-text-inner .section-title { margin-bottom: 1.2rem; }
+  .split-text-inner .section-subtitle { margin-bottom: 2rem; }
+  .features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.83rem;
+    color: rgba(242,232,213,0.8);
+    font-weight: 300;
+  }
+  .features-list li::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ---- HABITACIONES ---- */
+  #habitaciones { background: var(--sand-light); }
+  .rooms-intro {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+  }
+  .room-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--charcoal);
+    cursor: pointer;
+  }
+  .room-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease, opacity 0.5s ease;
+    opacity: 0.9;
+  }
+  .room-card:hover .room-img { transform: scale(1.06); opacity: 0.75; }
+  .room-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.8rem;
+    background: linear-gradient(to top, rgba(20,18,14,0.92) 0%, transparent 100%);
+    transform: translateY(40px);
+    transition: var(--transition);
+  }
+  .room-card:hover .room-info { transform: translateY(0); }
+  .room-type {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+  }
+  .room-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--sand);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+  .room-desc {
+    font-size: 0.78rem;
+    color: rgba(242,232,213,0.7);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .room-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--sand);
+  }
+  .room-price span { color: var(--gold); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .room-btn {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: var(--transition);
+    font-weight: 500;
+  }
+  .room-btn:hover { letter-spacing: 0.25em; }
+
+  /* ---- RESTAURANTE ---- */
+  #restaurante { background: var(--charcoal); padding: 7rem 0; }
+  .rest-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+  .rest-img-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .rest-img-wrap img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .rest-badge {
+    position: absolute;
+    top: 1.5rem; right: -1.5rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 1.2rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    transform: rotate(2deg);
+  }
+  .menu-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .menu-tab {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid rgba(242,232,213,0.2);
+    color: rgba(242,232,213,0.6);
+    background: transparent;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+  }
+  .menu-tab:hover, .menu-tab.active {
+    background: var(--gold);
+    color: var(--charcoal);
+    border-color: var(--gold);
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+    background: rgba(242,232,213,0.08);
+  }
+  .menu-item {
+    background: var(--charcoal);
+    padding: 1.6rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: background 0.3s ease;
+    cursor: default;
+  }
+  .menu-item:hover { background: #282420; }
+  .menu-item-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .menu-item-info { flex: 1; }
+  .menu-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--sand);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+  }
+  .menu-item-desc {
+    font-size: 0.73rem;
+    color: rgba(242,232,213,0.5);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .menu-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+  }
+  .category-panel { display: none; }
+  .category-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; background: rgba(242,232,213,0.08); }
+
+  /* ---- GALLERY ---- */
+  #galeria { background: var(--sand-light); padding: 6rem 0; }
+  .gallery-intro { text-align: center; margin-bottom: 3.5rem; }
+  .masonry {
+    columns: 4;
+    column-gap: 6px;
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 6px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .masonry-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+    filter: brightness(0.95);
+  }
+  .masonry-item:hover img { transform: scale(1.05); filter: brightness(1); }
+  .masonry-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(62,75,63,0);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .masonry-item:hover .masonry-item-overlay { background: rgba(62,75,63,0.25); }
+
+  /* ---- TESTIMONIALS ---- */
+  #testimonios { background: var(--olive); padding: 7rem 0; }
+  .test-header { text-align: center; margin-bottom: 4rem; }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(242,232,213,0.08);
+  }
+  .test-card {
+    background: var(--olive);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s ease;
+  }
+  .test-card:hover { background: var(--olive-light); }
+  .test-stars {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+  }
+  .test-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--sand);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  .test-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .test-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    flex-shrink: 0;
+  }
+  .test-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--sand);
+    margin-bottom: 0.1rem;
+  }
+  .test-location {
+    font-size: 0.7rem;
+    color: rgba(242,232,213,0.5);
+    font-weight: 300;
+  }
+
+  /* ---- RESERVAS ---- */
+  #reservas { background: var(--sand-light); padding: 7rem 0; }
+  .reservas-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .reservas-text .section-title { margin-bottom: 1rem; }
+  .reservas-text .section-subtitle { margin-bottom: 2rem; }
+  .reservas-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .res-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: #5a5248;
+  }
+  .res-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .form-card {
+    background: white;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--olive);
+    margin-bottom: 1.8rem;
+    font-style: italic;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7a7268;
+    font-weight: 500;
+  }
+  .form-group input, .form-group select {
+    border: none;
+    border-bottom: 1.5px solid #e0d9cf;
+    padding: 0.7rem 0;
+    font-size: 0.88rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--charcoal);
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-group select { cursor: pointer; }
+  .form-submit {
+    width: 100%;
+    background: var(--olive);
+    color: var(--sand);
+    border: none;
+    padding: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--olive-light); }
+
+  /* ---- LOCATION ---- */
+  #ubicacion { background: var(--charcoal); padding: 7rem 0; }
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .location-map {
+    background: #2a2520;
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a2e2a 0%, #1f2420 50%, #252822 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid rgba(242,232,213,0.08);
+  }
+  .map-icon { font-size: 3rem; color: var(--gold); opacity: 0.7; }
+  .map-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: rgba(242,232,213,0.6);
+    font-style: italic;
+    text-align: center;
+  }
+  .map-sub {
+    font-size: 0.72rem;
+    color: rgba(242,232,213,0.35);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .map-pin-link {
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,169,110,0.4);
+    padding-bottom: 2px;
+    transition: var(--transition);
+  }
+  .map-pin-link:hover { border-color: var(--gold); }
+  .location-info .section-title { margin-bottom: 1.5rem; }
+  .info-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .info-block-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .info-block-text {
+    font-size: 0.85rem;
+    color: rgba(242,232,213,0.65);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .info-block-text a { color: var(--gold); text-decoration: none; }
+  .info-block-text a:hover { text-decoration: underline; }
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(242,232,213,0.6);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+  }
+  .social-link:hover { color: var(--gold); }
+  .social-icon {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(242,232,213,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+  .social-link:hover .social-icon { border-color: var(--gold); background: rgba(201,169,110,0.1); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: #121110;
+    padding: 4rem 0 2rem;
+    border-top: 1px solid rgba(242,232,213,0.06);
+  }
+  .footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand .nav-logo { font-size: 1.6rem; display: block; margin-bottom: 1rem; }
+  .footer-brand p {
+    font-size: 0.78rem;
+    color: rgba(242,232,213,0.4);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 260px;
+  }
+  .footer-col-title {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a {
+    font-size: 0.8rem;
+    color: rgba(242,232,213,0.45);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 300;
+  }
+  .footer-links a:hover { color: var(--sand); }
+  .footer-bottom {
+    border-top: 1px solid rgba(242,232,213,0.06);
+    padding-top: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(242,232,213,0.25);
+    font-weight: 300;
+  }
+  .footer-made {
+    font-size: 0.7rem;
+    color: rgba(242,232,213,0.25);
+    font-weight: 300;
+  }
+
+  /* ---- WHATSAPP FLOAT ---- */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 200;
+    width: 54px;
+    height: 54px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: var(--transition);
+    animation: waPulse 3s infinite;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 30px rgba(37,211,102,0.65); }
+  }
+
+  /* ---- REVEAL ANIMATIONS ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 1024px) {
+    .exp-grid { grid-template-columns: 1fr 1fr; }
+    .rooms-grid { grid-template-columns: repeat(2, 1fr); }
+    .rest-header { grid-template-columns: 1fr; gap: 2rem; }
+    .masonry { columns: 3; }
+    .test-grid { grid-template-columns: 1fr 1fr; }
+    .reservas-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .location-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr 1fr; }
+    .split-feature { grid-template-columns: 1fr; }
+    .split-text { padding: 3rem 2rem; }
+    .split-text-inner { max-width: 100%; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav.scrolled { padding: 0.7rem 1.5rem; }
+    .nav-links { display: none; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .exp-card { aspect-ratio: 4/3 !important; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .masonry { columns: 2; }
+    .test-grid { grid-template-columns: 1fr; background: none; gap: 1px; }
+    .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .rooms-intro { flex-direction: column; }
+  }
+  @media (max-width: 480px) {
+    .masonry { columns: 1; }
+    section { padding: 4rem 0; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; }
+  }
+
+  /* Horizontal divider accent */
+  .gold-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.2rem 0;
+  }
+  .gold-line.center { margin: 1.2rem auto; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">KAI<span>·</span></a>
+  <ul class="nav-links">
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#habitaciones">Habitaciones</a></li>
+    <li><a href="#restaurante">Restaurante</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="#reservas" class="nav-cta">Reservar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Armenia · Calarcá · Quindío, Colombia</span>
+    <h1 class="hero-title">Descansa entre naturaleza,<br>diseño y experiencias<br>inolvidables.</h1>
+    <p class="hero-subtitle">Hotel boutique eco, café de especialidad y gastronomía premium inspirada en el Pacífico colombiano.</p>
+    <div class="hero-buttons">
+      <a href="#reservas" class="btn-primary">Reservar ahora</a>
+      <a href="#habitaciones" class="btn-outline">Ver habitaciones</a>
+      <a href="#restaurante" class="btn-outline">Explorar restaurante</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Descubrir</span>
+  </div>
+</section>
+
+<!-- EXPERIENCIA KAI -->
+<section id="experiencia">
+  <div class="container">
+    <div class="exp-intro reveal">
+      <span class="section-label">Nuestro mundo</span>
+      <div class="gold-line center"></div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Una experiencia completa<br><em>en un solo destino.</em></h2>
+      <p class="section-subtitle" style="margin: 0 auto; text-align: center;">KAI es más que un hotel. Es un espacio donde la naturaleza del Eje Cafetero, la arquitectura contemporánea y la cocina del Pacífico convergen en una experiencia sensorial única.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-card-bg" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=85')"></div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <span class="exp-card-label">Alojamiento</span>
+          <h3 class="exp-card-title">Hotel Boutique Eco</h3>
+          <p class="exp-card-text">Habitaciones diseñadas con materiales naturales, inmersas en la vegetación tropical del Quindío. Cada espacio es una experiencia sensorial.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-bg" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85')"></div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <span class="exp-card-label">Gastronomía</span>
+          <h3 class="exp-card-title">Restaurante Premium</h3>
+          <p class="exp-card-text">Cocina del Pacífico colombiano, carnes a la parrilla y creaciones artesanales. Visítanos sin necesidad de hospedarte.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-bg" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85')"></div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <span class="exp-card-label">Café</span>
+          <h3 class="exp-card-title">Café de Especialidad</h3>
+          <p class="exp-card-text">Granos seleccionados del corazón del Eje Cafetero. Métodos de preparación artesanal en un ambiente cálido y auténtico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT FEATURE — NATURALEZA -->
+<section id="naturaleza">
+  <div class="split-feature">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=900&q=85" alt="Naturaleza KAI" loading="lazy">
+    </div>
+    <div class="split-text">
+      <div class="split-text-inner">
+        <span class="section-label">Dónde estamos</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title light">Rodeados de<br><em>montaña y vida.</em></h2>
+        <p class="section-subtitle light" style="margin-bottom: 1.8rem;">KAI está ubicado en el corazón del Quindío, entre Armenia y Calarcá — a minutos del bullicio, pero a mundos de distancia en sensación.</p>
+        <ul class="features-list">
+          <li>Arquitectura eco-contemporánea integrada al paisaje</li>
+          <li>Piscina rodeada de vegetación tropical</li>
+          <li>Espacios abiertos con vistas a la montaña</li>
+          <li>Senderos naturales en el entorno</li>
+          <li>Conexión real con la naturaleza cafetera</li>
+        </ul>
+        <a href="#reservas" class="btn-primary">Vivir la experiencia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HABITACIONES -->
+<section id="habitaciones">
+  <div class="container">
+    <div class="rooms-intro">
+      <div>
+        <span class="section-label">Alojamiento</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title">Habitaciones que<br><em>son una experiencia.</em></h2>
+      </div>
+      <p class="section-subtitle" style="max-width: 360px;">Cada espacio diseñado con materiales naturales, luz cálida y detalles que hacen de cada noche un recuerdo.</p>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card reveal">
+        <img class="room-img" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=85" alt="Suite Pacífico" loading="lazy">
+        <div class="room-info">
+          <span class="room-type">Suite Premium</span>
+          <h3 class="room-name">Suite Pacífico</h3>
+          <p class="room-desc">Vista panorámica al jardín, terraza privada, bañera exenta y materiales en madera y piedra natural.</p>
+          <div class="room-price">Desde <strong>$350.000</strong> <span>cop / noche</span></div>
+          <a href="#reservas" class="room-btn">Reservar suite</a>
+        </div>
+      </div>
+      <div class="room-card reveal reveal-delay-1">
+        <img class="room-img" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=700&q=85" alt="Habitación Selva" loading="lazy">
+        <div class="room-info">
+          <span class="room-type">Habitación Doble</span>
+          <h3 class="room-name">Selva Profunda</h3>
+          <p class="room-desc">Inmersión total en la naturaleza. Paredes de vidrio que llevan el bosque al interior de tu habitación.</p>
+          <div class="room-price">Desde <strong>$220.000</strong> <span>cop / noche</span></div>
+          <a href="#reservas" class="room-btn">Reservar</a>
+        </div>
+      </div>
+      <div class="room-card reveal reveal-delay-2">
+        <img class="room-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=85" alt="Cabaña KAI" loading="lazy">
+        <div class="room-info">
+          <span class="room-type">Cabaña Privada</span>
+          <h3 class="room-name">Cabaña KAI</h3>
+          <p class="room-desc">Independencia total. Sala, cocina y zona exterior propia. Perfecta para parejas o escapadas familiares.</p>
+          <div class="room-price">Desde <strong>$480.000</strong> <span>cop / noche</span></div>
+          <a href="#reservas" class="room-btn">Reservar cabaña</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTE -->
+<section id="restaurante">
+  <div class="container">
+    <div class="rest-header">
+      <div class="reveal">
+        <span class="section-label">Gastronomía</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title light">Sabores del<br><em>Pacífico y más allá.</em></h2>
+        <p class="section-subtitle light" style="margin: 1.2rem 0 1.5rem;">Nuestro restaurante y café están abiertos para todos — te hospedes o no. Ven a disfrutar una experiencia gastronómica premium en medio de la naturaleza del Quindío.</p>
+        <p style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:1.5rem;">Abierto al público · Sin reserva previa · Mar–Dom 12:00–22:00</p>
+        <a href="#reservas" class="btn-outline">Hacer reserva</a>
+      </div>
+      <div class="rest-img-wrap reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85" alt="Restaurante KAI" loading="lazy">
+        <div class="rest-badge">Cocina del<br>Pacífico<br>Colombiano</div>
+      </div>
+    </div>
+
+    <!-- Menu tabs -->
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" onclick="showMenu('pacifico', this)">Pacífico</button>
+      <button class="menu-tab" onclick="showMenu('parrilla', this)">Parrilla</button>
+      <button class="menu-tab" onclick="showMenu('hamburguesas', this)">Hamburguesas</button>
+      <button class="menu-tab" onclick="showMenu('salchipapas', this)">Salchipapas</button>
+      <button class="menu-tab" onclick="showMenu('cafe', this)">Café</button>
+      <button class="menu-tab" onclick="showMenu('bebidas', this)">Bebidas</button>
+    </div>
+
+    <div id="menu-pacifico" class="category-panel active">
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1565680018434-b3d4a6ae22c8?w=200&q=80" alt="Encocado">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Encocado de camarón</p>
+          <p class="menu-item-desc">Camarones frescos en crema de coco, achiote y hierbas del Pacífico. Acompañado de arroz con coco y patacón.</p>
+          <p class="menu-item-price">$42.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&q=80" alt="Pescado">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Pescado del día</p>
+          <p class="menu-item-desc">Filete fresco preparado al estilo tradicional del Pacífico, con hogao, ensalada y arroz con coco artesanal.</p>
+          <p class="menu-item-price">$38.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&q=80" alt="Arroz coco">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Arroz con coco & mariscos</p>
+          <p class="menu-item-desc">Combinación de mariscos frescos sobre arroz cremoso de coco. Un clásico del litoral elevado al siguiente nivel.</p>
+          <p class="menu-item-price">$46.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&q=80" alt="Ceviche">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Ceviche tropical KAI</p>
+          <p class="menu-item-desc">Ceviché de corvina con leche de tigre, aguacate criollo y chips de plátano verde. Fresco y vibrante.</p>
+          <p class="menu-item-price">$32.000</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-parrilla" class="category-panel">
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?w=200&q=80" alt="Churrasco">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Churrasco a la parrilla</p>
+          <p class="menu-item-desc">Corte premium madurado, brasa de carbón, chimichurri de hierbas frescas. Acompañado de papas rústicas y ensalada.</p>
+          <p class="menu-item-price">$58.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&q=80" alt="Costillas">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Costillas BBQ KAI</p>
+          <p class="menu-item-desc">Rack de costillas en marinada propia, 6 horas de cocción lenta + glaseado en parrilla. Acompañamiento a elección.</p>
+          <p class="menu-item-price">$62.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80" alt="Lomo">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Lomo de cerdo tropical</p>
+          <p class="menu-item-desc">Lomo a la plancha con salsa de maracuyá y panela, yuca frita y ensalada fresca de la huerta.</p>
+          <p class="menu-item-price">$45.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=200&q=80" alt="Pollo parrilla">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Pollo a la brasa KAI</p>
+          <p class="menu-item-desc">Pollo entero marinado 24h en especias criollas, asado lento en parrilla de carbón. Un clásico reinventado.</p>
+          <p class="menu-item-price">$38.000</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-hamburguesas" class="category-panel">
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80" alt="Hamburguesa KAI">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Hamburguesa KAI</p>
+          <p class="menu-item-desc">Doble patty Angus 150g, cheddar madurado, cebolla caramelizada, trufa y salsa secreta KAI. Pan brioche artesanal.</p>
+          <p class="menu-item-price">$36.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=200&q=80" alt="Burger Pacífico">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Burger del Pacífico</p>
+          <p class="menu-item-desc">Patty de res + camarón a la plancha, guacamole, chipotle, pico de gallo y queso costeño. Fusión total.</p>
+          <p class="menu-item-price">$42.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80" alt="Burger Tropical">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Tropical Smash</p>
+          <p class="menu-item-desc">Smash burger 120g x2, mango biche, jalapeño encurtido, queso americano y mayo de cilantro. Sabor audaz.</p>
+          <p class="menu-item-price">$34.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=200&q=80" alt="Chicken Burger">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Crispy Chicken KAI</p>
+          <p class="menu-item-desc">Pechuga crocante bañada en salsa de maracuyá picante, coleslaw de la casa, pepinillos y brioche tostado.</p>
+          <p class="menu-item-price">$30.000</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-salchipapas" class="category-panel">
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=200&q=80" alt="Salchipapa especial">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Salchipapa especial KAI</p>
+          <p class="menu-item-desc">Papa criolla + papas rústicas, chorizo artesanal, queso fundido, chimichurri y ají de la casa. La versión premium.</p>
+          <p class="menu-item-price">$28.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1585325701954-8d13fc7c9614?w=200&q=80" alt="Salchipapa del Pacífico">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Salchipapa del Pacífico</p>
+          <p class="menu-item-desc">Papas mixtas con camarones salteados, salsa de coco y limón. Una fusión tropical que no olvidarás.</p>
+          <p class="menu-item-price">$34.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80" alt="Salchipapa clásica">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Clásica artesanal</p>
+          <p class="menu-item-desc">Papas fritas en aceite de girasol, salchicha parrillera, tres salsas artesanales y queso costeño rallado.</p>
+          <p class="menu-item-price">$22.000</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-cafe" class="category-panel">
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&q=80" alt="Cold brew">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Cold Brew Tropical</p>
+          <p class="menu-item-desc">Extracción en frío 18h de café de origen Quindío, servido con hielo y un toque de leche de coco. Refrescante y profundo.</p>
+          <p class="menu-item-price">$12.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&q=80" alt="Café filtrado">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Café filtrado del Quindío</p>
+          <p class="menu-item-desc">Método Chemex o V60, con granos de fincas seleccionadas del Eje Cafetero. Notas florales y cítricas. Para los entendidos.</p>
+          <p class="menu-item-price">$9.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&q=80" alt="Frappé">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Frappé artesanal KAI</p>
+          <p class="menu-item-desc">Base de espresso doble, crema de coco, caramelo de panela y hielo. Terminado con espuma de leche aireada.</p>
+          <p class="menu-item-price">$14.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=200&q=80" alt="Espresso">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Espresso de origen</p>
+          <p class="menu-item-desc">Shot doble con granos de microlote. Cuerpo pleno y acidez balanceada. El alma del café colombiano.</p>
+          <p class="menu-item-price">$7.000</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-bebidas" class="category-panel">
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200&q=80" alt="Cóctel tropical">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Cóctel tropical KAI</p>
+          <p class="menu-item-desc">Aguardiente Quindío, maracuyá, jengibre y miel de caña. El brindis perfecto para una tarde en la terraza.</p>
+          <p class="menu-item-price">$18.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=200&q=80" alt="Jugo">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Jugos naturales</p>
+          <p class="menu-item-desc">Selección de frutas tropicales de temporada: lulo, guanábana, maracuyá, guayaba o mora. En agua o leche.</p>
+          <p class="menu-item-price">$8.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=80" alt="Limonada">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Limonada de coco</p>
+          <p class="menu-item-desc">Limón tahití, leche de coco, menta fresca y panela. Fresca, tropical y completamente adictiva.</p>
+          <p class="menu-item-price">$10.000</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img class="menu-item-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=200&q=80" alt="Michelada">
+        <div class="menu-item-info">
+          <p class="menu-item-name">Michelada artesanal</p>
+          <p class="menu-item-desc">Cerveza artesanal del Quindío, limón, Worcestershire, salsa de tomate y especias. La favorita del lugar.</p>
+          <p class="menu-item-price">$16.000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galeria">
+  <div class="container">
+    <div class="gallery-intro reveal">
+      <span class="section-label">Galería</span>
+      <div class="gold-line center"></div>
+      <h2 class="section-title" style="margin-bottom: 0.5rem;">Momentos que<br><em>hablan por sí solos.</em></h2>
+    </div>
+    <div class="masonry">
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=85" alt="Habitación" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Restaurante" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=85" alt="Piscina" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=85" alt="Café" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=85" alt="Naturaleza" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=85" alt="Hamburguesa" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=85" alt="Habitación" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=85" alt="Cócteles" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85" alt="Plato" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=85" alt="Parrilla" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=600&q=85" alt="Jardín" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+      <div class="masonry-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=85" alt="Barismo" loading="lazy">
+        <div class="masonry-item-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonios">
+  <div class="container">
+    <div class="test-header reveal">
+      <span class="section-label">Lo que dicen</span>
+      <div class="gold-line center"></div>
+      <h2 class="section-title light">Experiencias<br><em>que se repiten.</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Llegamos solo al restaurante un sábado y nos quedamos todo el fin de semana. El encocado de camarón fue lo mejor que hemos comido en mucho tiempo, y las habitaciones... son otro mundo."</p>
+        <div class="test-author">
+          <div class="test-avatar">LM</div>
+          <div>
+            <p class="test-name">Laura & Miguel</p>
+            <p class="test-location">Bogotá · Familia</p>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal reveal-delay-1">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"El café filtrado de origen es el mejor que he probado fuera de una competencia barista. El ambiente, la atención y la vista desde la terraza lo hacen aún más especial. Vuelvo la próxima semana."</p>
+        <div class="test-author">
+          <div class="test-avatar">SR</div>
+          <div>
+            <p class="test-name">Santiago Restrepo</p>
+            <p class="test-location">Medellín · Viajero solo</p>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal reveal-delay-2">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Celebramos nuestro aniversario en KAI y fue perfecto. Romanticismo, naturaleza, gastronomía increíble y un nivel de detalle que pocas veces he visto en Colombia. Lugar que sí merece la pena."</p>
+        <div class="test-author">
+          <div class="test-avatar">AP</div>
+          <div>
+            <p class="test-name">Andrea & Pedro</p>
+            <p class="test-location">Cali · Pareja</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVAS -->
+<section id="reservas">
+  <div class="container">
+    <div class="reservas-wrap">
+      <div class="reservas-text reveal">
+        <span class="section-label">Reservaciones</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title" style="margin-bottom: 1rem;">Tu próxima<br><em>escapada perfecta.</em></h2>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">Haz tu reserva directa y disfruta de tarifas preferenciales, atención personalizada y la promesa de una experiencia que valdrá cada momento.</p>
+        <div class="reservas-highlights">
+          <div class="res-highlight"><div class="res-dot"></div>Check-in 3:00 PM · Check-out 12:00 PM</div>
+          <div class="res-highlight"><div class="res-dot"></div>Desayuno incluido en todas las habitaciones</div>
+          <div class="res-highlight"><div class="res-dot"></div>Acceso libre a piscina y zonas comunes</div>
+          <div class="res-highlight"><div class="res-dot"></div>Cancelación gratuita hasta 48 horas antes</div>
+          <div class="res-highlight"><div class="res-dot"></div>Restaurante y café disponibles para todos</div>
+        </div>
+      </div>
+      <div class="form-card reveal reveal-delay-2">
+        <p class="form-title">Consultar disponibilidad</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Teléfono</label>
+            <input type="tel" placeholder="+57 300 000 0000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha de llegada</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Fecha de salida</label>
+            <input type="date">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tipo de habitación</label>
+            <select>
+              <option>Suite Pacífico</option>
+              <option>Selva Profunda</option>
+              <option>Cabaña KAI</option>
+              <option>Reserva en Restaurante</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Número de huéspedes</label>
+            <select>
+              <option>1 persona</option>
+              <option>2 personas</option>
+              <option>3 personas</option>
+              <option>4+ personas</option>
+            </select>
+          </div>
+        </div>
+        <button class="form-submit" onclick="handleReservation()">Consultar disponibilidad →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACION -->
+<section id="ubicacion">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-map reveal">
+        <div class="map-placeholder">
+          <div class="map-icon">📍</div>
+          <p class="map-label">KAI Hotel Campestre</p>
+          <p class="map-sub">Armenia · Calarcá, Quindío</p>
+          <a href="https://maps.google.com" target="_blank" class="map-pin-link">Ver en Google Maps →</a>
+        </div>
+      </div>
+      <div class="location-info reveal reveal-delay-2">
+        <span class="section-label">Encuéntranos</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title light" style="margin-bottom: 2rem;">Cerca de todo,<br><em>lejos del ruido.</em></h2>
+        <div class="info-blocks">
+          <div>
+            <p class="info-block-title">Dirección</p>
+            <p class="info-block-text">Km 3 vía Armenia–Calarcá, Quindío, Colombia<br>A 10 minutos del centro de Armenia</p>
+          </div>
+          <div>
+            <p class="info-block-title">Horarios restaurante & café</p>
+            <p class="info-block-text">Martes a Viernes: 12:00 PM – 10:00 PM<br>Sábados y Domingos: 10:00 AM – 11:00 PM<br>Lunes: Cerrado</p>
+          </div>
+          <div>
+            <p class="info-block-title">Contacto</p>
+            <p class="info-block-text">
+              <a href="https://wa.me/573000000000">WhatsApp: +57 300 000 0000</a><br>
+              <a href="mailto:reservas@kaihotel.co">reservas@kaihotel.co</a>
+            </p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <span class="social-icon">📸</span>
+            @kaihotel.co
+          </a>
+          <a href="https://wa.me/573000000000" class="social-link">
+            <span class="social-icon">💬</span>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">KAI<span>·</span></a>
+        <p>Hotel boutique eco, café de especialidad y restaurante premium inspirado en la gastronomía del Pacífico colombiano. Ubicado entre Armenia y Calarcá, Quindío.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Hotel</p>
+        <ul class="footer-links">
+          <li><a href="#habitaciones">Habitaciones</a></li>
+          <li><a href="#reservas">Reservar</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#testimonios">Reseñas</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Restaurante</p>
+        <ul class="footer-links">
+          <li><a href="#restaurante">Menú</a></li>
+          <li><a href="#restaurante">Cocina del Pacífico</a></li>
+          <li><a href="#restaurante">Parrilla</a></li>
+          <li><a href="#restaurante">Café</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contacto</p>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/573000000000">WhatsApp</a></li>
+          <li><a href="mailto:reservas@kaihotel.co">Email</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#ubicacion">Cómo llegar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 KAI Hotel Campestre · Armenia, Quindío · Todos los derechos reservados.</p>
+      <p class="footer-made">Experiencias que se recuerdan · <span style="color:var(--gold);">♥</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/573000000000" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Menu tabs
+  function showMenu(category, btn) {
+    document.querySelectorAll('.category-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('menu-' + category).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Reservation form
+  function handleReservation() {
+    const inputs = document.querySelectorAll('#reservas input, #reservas select');
+    let filled = true;
+    inputs.forEach(i => { if (!i.value) filled = false; });
+    
+    const btn = document.querySelector('.form-submit');
+    if (filled) {
+      btn.textContent = '✓ Solicitud enviada — Te contactaremos pronto';
+      btn.style.background = '#3E4B3F';
+      setTimeout(() => {
+        btn.textContent = 'Consultar disponibilidad →';
+        btn.style.background = '';
+      }, 4000);
+    } else {
+      btn.textContent = 'Completa todos los campos';
+      btn.style.background = '#7A5C45';
+      setTimeout(() => {
+        btn.textContent = 'Consultar disponibilidad →';
+        btn.style.background = '';
+      }, 2500);
+    }
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
